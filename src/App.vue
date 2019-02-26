@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Mheader />
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -7,6 +8,16 @@
     <router-view/>
   </div>
 </template>
+
+<script>
+import Mheader from './components/Mheader.vue';
+
+export default {
+  components: {
+    Mheader,
+  },
+};
+</script>
 
 <style lang="less">
 #app {
