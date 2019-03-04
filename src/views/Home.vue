@@ -1,9 +1,13 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    这是推荐组件
   </div>
 </template>
 
 <script>
 export default {};
 </script>
+
+<style lang="less">
+
+</style>

@@ -28,6 +28,12 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## 代码规范
+
+使用eslint, lint规范采用airbnb 的js 代码规范
+
+[在VSCode里配置 ESLint + Airbnb + Vue](https://catwalk.red/2019/03/04/%E5%9C%A8VSCode%E9%87%8C%E9%85%8D%E7%BD%AE%20ESLint%20+%20Airbnb%20+%20Vue/)
+
 ## 技术方案
 
 

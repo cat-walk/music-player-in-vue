@@ -5,20 +5,18 @@
         <div>Menu</div>
       </nav>
       <main id="panel">
-        <header>
-          <button class="toggle-button btn-hamburger iconfont cebianlan"></button>
-          <router-link to="/home">推荐页
-      <!-- FIXME: -->
-      <!-- <div>
-        <i class="iconfont cebianlan"></i>
-      </div>-->
-    </router-link>
-    <router-link to="/my">我的</router-link>
-    <router-link to="/search">搜索</router-link>
+        <header class="mp-header">
+          <button class="toggle-button btn-hamburger">
+            <i class="iconfont icon-cebianlan"></i>
+          </button>
+          <router-link to="/home">推荐页</router-link>
+          <router-link to="/my">我的</router-link>
+          <button @click="toSearch">
+            <i class="iconfont icon-sousuo"></i>
+          </button>
         </header>
       </main>
     </Slideout>
-    <router-view></router-view>
   </div>
 </template>
 
@@ -33,16 +31,26 @@ export default {
     open() {
       console.log('slideoutOpen');
     },
+    toSearch() {
+      this.$router.push('/search');
+    },
   },
 };
 </script>
 
-<style scoped>
-/* i {
+<style scoped lang='less'>
+i {
   display: inline-block;
   width: 20px;
   height: 20px;
-} */
+}
+
+
+.mp-header{
+  display: flex;
+  justify-content: space-between;
+}
+
 
 /* slideout样式 */
 body {
@@ -78,7 +86,6 @@ body {
   position: relative;
   z-index: 1;
   will-change: transform;
-  min-height: 100vh;
 }
 
 .slideout-open,
@@ -91,13 +98,13 @@ body {
   display: block;
 }
 
-.btn-hamburger{
+/* .btn-hamburger {
   position: absolute;
-  top: .12rem;
-  left: .12rem;
+  top: 0.12rem;
+  left: 0.12rem;
   display: block;
-  width: .45rem;
-  height: .45rem;
-}
+  width: 0.45rem;
+  height: 0.45rem;
+} */
 /* slideout样式 */
 </style>
