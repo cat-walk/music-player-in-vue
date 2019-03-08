@@ -1,13 +1,16 @@
 <template>
   <div class="search-box" ref="searchBox">
     <div class="search-top">
-      <i class="iconfont icon-flow" @click='goBack'></i>
+      <!-- <i class="iconfont icon-flow" @click='goBack'></i> -->
+      <GoBackBtn />
       <input type="text" class='search-input'>
     </div>
   </div>
 </template>
 
 <script>
+import GoBackBtn from '../../components/GoBackBtn.vue';
+
 export default {
   data() {
     return {
@@ -22,6 +25,9 @@ export default {
   mounted() {
     // 使得搜索组件充满整个屏幕
     this.$refs.searchBox.style.height = `${screen.height}px`;
+  },
+  components: {
+    GoBackBtn,
   },
 };
 </script>
