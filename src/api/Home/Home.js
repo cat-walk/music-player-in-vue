@@ -5,3 +5,9 @@ import axios from '../api';
  *
  */
 export const getBanner = () => axios.get('/banner');
+
+/**
+ * 获取主页推荐歌单的api
+ *
+ */
+export const getRecommendSongList = () => axios.get('/personalized');

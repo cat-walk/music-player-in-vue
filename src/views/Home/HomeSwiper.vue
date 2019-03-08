@@ -32,7 +32,6 @@ export default {
   methods: {
     getData() {
       getBanner().then((data) => {
-        console.log(data);
         this.banners = data.banners;
       });
     },
