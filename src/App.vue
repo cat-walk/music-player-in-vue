@@ -8,16 +8,6 @@
         </div>
       </nav>
       <main id="panel">
-        <header class="mp-header">
-          <button class="toggle-button btn-hamburger">
-            <i class="iconfont icon-cebianlan"></i>
-          </button>
-          <router-link to="/home">推荐页</router-link>
-          <router-link to="/my">我的</router-link>
-          <button @click="toSearch">
-            <i class="iconfont icon-sousuo"></i>
-          </button>
-        </header>
         <router-view></router-view>
         <!-- router-view放在合适的地方，slideout才能正常工作 -->
       </main>
@@ -27,37 +17,22 @@
 
 <script>
 import Slideout from 'vue-slideout';
+import Nav from './components/Nav.vue';
 
 export default {
   components: {
     Slideout,
+    Nav,
   },
   methods: {
     open() {
       console.log('slideoutOpen');
-    },
-    toSearch() {
-      this.$router.push('/search');
     },
   },
 };
 </script>
 
 <style scoped lang='less'>
-i {
-  display: block;
-  font-size: 0.22rem;
-  color: #f1f1f1;
-}
-
-// 播放器顶部导航栏
-.mp-header {
-  display: flex;
-  height: 0.44rem;
-  justify-content: space-between; // 实现顶栏平均分布
-  align-items: center; // 实现顶栏垂直居中
-  background-color: #d44439;
-}
 
 /* slideout样式 */
 body {
@@ -114,13 +89,4 @@ body {
 }
 
 /* slideout样式 */
-
-a {
-  color: lightcoral;
-  font-size: 0.15rem;
-  &.router-link-active {
-    text-decoration: none;
-    color: #fcdae9;
-  }
-}
 </style>

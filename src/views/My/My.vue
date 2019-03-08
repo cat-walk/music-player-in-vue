@@ -1,9 +1,17 @@
 <template>
-  <div></div>
+  <div>
+    <Nav />
+  </div>
 </template>
 
 <script>
-export default {};
+import Nav from '../../components/Nav.vue';
+
+export default {
+  components: {
+    Nav,
+  },
+};
 </script>
 
 <style scoped>
