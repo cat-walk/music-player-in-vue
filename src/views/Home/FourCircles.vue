@@ -20,10 +20,12 @@
         <h5 class="title">歌单</h5>
       </li>
       <li class="circle-item">
-        <div class="circle-box">
-          <i class="iconfont icon-paihangbang"></i>
-        </div>
-        <h5 class="title">排行榜</h5>
+        <router-link to="/leader-board">
+          <div class="circle-box">
+            <i class="iconfont icon-paihangbang"></i>
+          </div>
+          <h5 class="title">排行榜</h5>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -60,6 +62,16 @@ export default {};
         font-weight: 400;
       }
     }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  font-size: 0.15rem;
+  &.router-link-active {
+    // text-decoration: none;
+    // color: #000;
   }
 }
 </style>
