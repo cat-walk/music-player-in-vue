@@ -57,6 +57,7 @@ Normalize.css：参考 [normalize.css与reset.css的不同](https://www.jianshu.
 ### 轮播图实现：[在Vue中使用Swiper](https://github.com/surmon-china/vue-awesome-swiper)
 
 
-致谢：
+
+## 致谢
 1. https://github.com/CaiJinyc/vue-music-webapp
 2. https://github.com/Binaryify/NeteaseCloudMusicApi
