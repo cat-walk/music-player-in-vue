@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-import My from './views/My.vue';
-import Search from './views/Search.vue';
+import Home from './views/Home/Home.vue'; // 优化了项目结构
+import My from './views/My/My.vue'; // 优化了项目结构
+import Search from './views/Search/Search.vue'; // 优化了项目结构
 
 Vue.use(Router);
 

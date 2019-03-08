@@ -28,6 +28,10 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
+## 后台项目
+致谢：https://github.com/Binaryify/NeteaseCloudMusicApi
+
+
 ## 代码规范
 
 使用eslint, lint规范采用airbnb 的js 代码规范
@@ -40,11 +44,15 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ### 移动适配方案
 flexible.js：详见 [flexible.js 移动端自适应方案]( https://www.jianshu.com/p/04efb4a1d2f8)
 
+根目录字体大小：100px，即1rem = 100px。
+
+设计稿上75px = 75/100 = 0.75rem。
+
 ### 统一不同浏览器的默认样式
 
 Normalize.css：参考 [normalize.css与reset.css的不同](https://www.jianshu.com/p/ad64c21e899a) [normalize.css的使用](https://cnodejs.org/topic/57f3846e83a4d9176a71da82)
 
-### 侧边栏实现
+### 侧边栏实现：[vue-slideout](https://github.com/vouill/vue-slideout)
 
-[vue-slideout](https://github.com/vouill/vue-slideout)
+### 轮播图实现：[在Vue中使用Swiper](https://github.com/surmon-china/vue-awesome-swiper)
 
