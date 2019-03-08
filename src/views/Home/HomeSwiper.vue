@@ -1,6 +1,7 @@
 <!-- The ref attr used to find the swiper instance -->
 <template>
-  <swiper :options="swiperOption" ref="mySwiper" @someSwiperEvent="callback" class="swiper">
+  <!-- 用v-if做一下判定，以解决vue-awesome-swiper的loop=true不生效的bug，原理未知 -->
+  <swiper v-if="banners.length>1" :options="swiperOption" ref="mySwiper" class="swiper">
     <!-- slides -->
     <swiper-slide v-for="(item,index) in banners" :key="index" class="swiper-slide">
       <div class="img-box">
@@ -26,7 +27,7 @@ export default {
           el: '.swiper-pagination',
         },
       },
-      banners: null,
+      banners: [],
     };
   },
   methods: {
@@ -56,7 +57,7 @@ export default {
   .swiper-slide {
     .img-box {
       margin: 0 auto; // 实现轮播图水平居中
-      width: 3.6rem;
+      width: 96%;
       .banner-img {
         width: 100%;
         border-radius: 0.05rem;
