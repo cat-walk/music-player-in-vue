@@ -26,7 +26,7 @@ export default {
 
 <style scoped lang='less'>
 .back-header {
-  position: fixed; // FIXME: 固定定位无效
+  position: fixed; // FIXME: 由于slideout插件给id为panel的元素设置了will-change: transform, 导致固定定位失效
   z-index: 999;
   left: 0;
   top: 0;

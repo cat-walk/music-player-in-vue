@@ -32,7 +32,7 @@ a {
   align-items: center;
 }
 .official-list-box {
-  padding-top: 0.14rem;
+  padding-top: 0.58rem;
   .official-list-title {
     font-size: 0.16rem;
   }
