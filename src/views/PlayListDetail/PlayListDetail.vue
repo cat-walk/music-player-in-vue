@@ -19,11 +19,16 @@
       </div>
       <ul class="track-list">
         <li class="track-item" v-for="(item, index) in tracks" :key="index">
-          <div class='track-rank'>{{index + 1}}</div>
-          <div class='track-info'>
-            <p class='track-title'>{{item.name}}</p>
-            <p class='track-desc ellipsis'>{{formatSinger(item.ar)}} - {{item.al.name}}</p>
-          </div>
+          <router-link
+            :to="{name: 'song', query: {name: item.name, singers: formatSinger(item.ar), id:item.id}, params: {coverImgUrl: item.al.picUrl}}"
+            class="link-to-play-control"
+          >
+            <div class="track-rank">{{index + 1}}</div>
+            <div class="track-info">
+              <p class="track-title">{{item.name}}</p>
+              <p class="track-desc ellipsis">{{formatSinger(item.ar)}} - {{item.al.name}}</p>
+            </div>
+          </router-link>
         </li>
       </ul>
     </section>
@@ -54,17 +59,15 @@ export default {
   methods: {
     getData() {
       getPlayListDetail(this.$route.query.id).then((res) => {
-        // console.table(res.playlist.tracks);
-
         // 如果图片的方案行不通，就通过背景来设置歌单的封面
         // this.$refs.playListDesc.style.background = `url(${res.playlist.coverImgUrl})`;
-        // TODO: 优化: data解构赋值
-        this.coverImgUrl = res.playlist.coverImgUrl;
-        this.playListTitle = res.playlist.name;
-        this.updateTime = moment(res.playlist.updateTime).format('MMM Do');
-        this.tracks = res.playlist.tracks;
-        this.trackCount = res.playlist.trackCount;
-        this.subscribedCount = res.playlist.subscribedCount;
+        const { playlist } = res;
+        this.coverImgUrl = playlist.coverImgUrl;
+        this.playListTitle = playlist.name;
+        this.updateTime = moment(playlist.updateTime).format('MMM Do');
+        this.tracks = playlist.tracks;
+        this.trackCount = playlist.trackCount;
+        this.subscribedCount = playlist.subscribedCount;
       });
     },
     formatSinger(singerList) {
@@ -148,22 +151,25 @@ export default {
   }
   .track-list {
     .track-item {
-      display: flex;
-      align-items: center;
-      height: 0.6rem;
-      border-bottom: 1px solid #e4e4e4;
-      .track-rank{
-        text-align: center;
-        width: 16%;
-      }
-      .track-info{
-        width: 84%;
-        .track-title{
-          font-size: .16rem;
+      .link-to-play-control {
+        display: flex;
+        align-items: center;
+        height: 0.6rem;
+        border-bottom: 1px solid #e4e4e4;
+        .track-rank {
+          text-align: center;
+          width: 16%;
+          font-size: 0.18rem;
         }
-        .track-desc{
-          font-size: .14rem;
-          color: #757575;
+        .track-info {
+          width: 84%;
+          .track-title {
+            font-size: 0.16rem;
+          }
+          .track-desc {
+            font-size: 0.14rem;
+            color: #757575;
+          }
         }
       }
     }
@@ -175,5 +181,6 @@ image[lazy="loading"] {
   width: 40px;
   height: 300px;
   margin: auto;
+  background: #000;
 }
 </style>

@@ -5,6 +5,7 @@ import My from './views/My/My.vue'; // 优化了项目结构
 import Search from './views/Search/Search.vue'; // 优化了项目结构
 import LeaderBoard from './views/LeaderBoard/LeaderBoard.vue'; // 优化了项目结构
 import PlayListDetail from './views/PlayListDetail/PlayListDetail.vue';
+import PlayControl from './views/PlayControl/PlayControl.vue';
 
 Vue.use(Router);
 
@@ -38,6 +39,11 @@ export default new Router({
       path: '/play-list-detail',
       name: 'play-list-detail',
       component: PlayListDetail,
+    },
+    {
+      path: '/song/:coverImgUrl',
+      name: 'song',
+      component: PlayControl,
     },
   ],
 });
