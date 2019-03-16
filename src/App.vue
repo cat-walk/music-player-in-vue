@@ -17,12 +17,10 @@
 
 <script>
 import Slideout from 'vue-slideout';
-import Nav from './components/Nav.vue';
 
 export default {
   components: {
     Slideout,
-    Nav,
   },
   methods: {
     open() {

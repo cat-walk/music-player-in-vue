@@ -15,7 +15,7 @@ module.exports = {
   pages: {
     index: {
       // entry for the pages
-      entry: 'src/main.js', // FIXME:项目的入口文件
+      entry: 'src/main.js', // Yang 这里是项目的入口文件
       // the source template
       template: 'src/pages/index/index.html',
       // output as dist/index.html
@@ -76,7 +76,7 @@ module.exports = {
     modules: false,
 
     // 是否使用 css 分离插件 ExtractTextPlugin，采用独立样式文件载入，不采用 <style> 方式内联至 html 文件中
-    extract: false, // FIXME: Yang 把这个参数修改为false，为的是使得style标签支持热更新
+    extract: false, // Yang 把这个参数修改为false，为的是使得style标签支持热更新
 
     // 是否构建样式地图，false 将提高构建速度
     sourceMap: false,
