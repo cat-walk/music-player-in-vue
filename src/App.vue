@@ -1,5 +1,6 @@
 <template>
   <div>
+    <my-audio></my-audio>
     <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" @on-open="open">
       <nav id="menu">
         <div>
@@ -17,10 +18,12 @@
 
 <script>
 import Slideout from 'vue-slideout';
+import MyAudio from './components/MyAudio.vue';
 
 export default {
   components: {
     Slideout,
+    MyAudio,
   },
   methods: {
     open() {
