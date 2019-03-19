@@ -1,12 +1,12 @@
 <template>
   <Header :class="headerClass">
-    <GoBackBtn/>
+    <back-btn/>
     <span class="back-header-title">{{title}}</span>
   </Header>
 </template>
 
 <script>
-import GoBackBtn from './GoBackBtn.vue';
+import BackBtn from './BackBtn.vue';
 
 export default {
   data() {
@@ -15,7 +15,7 @@ export default {
     };
   },
   components: {
-    GoBackBtn,
+    BackBtn,
   },
   props: ['title', 'color'],
   mounted() {

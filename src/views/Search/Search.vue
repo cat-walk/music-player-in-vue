@@ -2,14 +2,14 @@
   <div class="search-box" ref="searchBox">
     <div class="search-top">
       <!-- <i class="iconfont icon-flow" @click='goBack'></i> -->
-      <GoBackBtn />
+      <back-btn></back-btn>
       <input type="text" class='search-input'>
     </div>
   </div>
 </template>
 
 <script>
-import GoBackBtn from '../../components/GoBackBtn.vue';
+import BackBtn from '../../components/BackBtn.vue';
 
 export default {
   data() {
@@ -27,7 +27,7 @@ export default {
     this.$refs.searchBox.style.height = `${screen.height}px`;
   },
   components: {
-    GoBackBtn,
+    BackBtn,
   },
 };
 </script>
