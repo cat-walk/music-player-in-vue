@@ -94,7 +94,18 @@ export default {
     // TODO: 为什么在computed里面？
     ...mapGetters(['songInfo', 'isPlaying']),
     showFlag() {
-      return this.$route.name !== 'song';
+      // emmmmmmmm 这个判定条件写的真好
+      // 不在‘song'路由，且audio里有歌时(标志位为duration不为NaN）才显示（后者是为了避嫌没歌的时候没有封面的尴尬情况）
+      if (
+        this.$route.name !== 'song'
+        && this.$refs.audio
+        && this.$refs.audio.duration
+      ) {
+        // debugger;
+        return true;
+      }
+      // debugger;
+      return false;
     },
   },
   watch: {
