@@ -4,7 +4,7 @@
     <ul class="top-list">
       <li v-for="(item, index) in data" :key="index" class="top-list-unit">
         <router-link :to="{path: '/play-list-detail', query: {id: item.id}}">
-          <div class="img-box">
+          <div class="img-wrap">
             <img :src="item.coverImgUrl" alt class="coverImg">
           </div>
           <h3 class="top-list-title">{{item.name}}</h3>
@@ -35,7 +35,7 @@ export default {
     justify-content: space-around;
     .top-list-unit {
       width: 32%;
-      .img-box {
+      .img-wrap {
         overflow: hidden;
         .coverImg {
           width: 100%;

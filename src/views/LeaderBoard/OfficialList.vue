@@ -4,7 +4,7 @@
     <ul class="official-list">
       <li v-for="(item, index) in officialList" :key="index" class="offical-list-unit">
         <router-link :to="{path: '/play-list-detail', query: {id: item.id}}">
-          <div class="img-box">
+          <div class="img-wrap">
             <img :src="item.coverImgUrl" alt class="coverImg">
           </div>
           <div class="tracks-box">
@@ -40,7 +40,7 @@ a {
     padding-top: 0.1rem;
     .offical-list-unit {
       height: 1.2rem;
-      .img-box {
+      .img-wrap {
         width: 30%;
         overflow: hidden;
         .coverImg {

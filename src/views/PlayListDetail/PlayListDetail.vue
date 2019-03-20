@@ -2,7 +2,7 @@
   <section>
     <back-header color="trans"></back-header>
     <section class="play-list-detail-top" ref="playListDesc">
-      <div class="img-box">
+      <div class="img-wrap">
         <img v-lazy="coverImgUrl" class="cover-img">
         <!-- TODO: lazyload是否生效？ -->
       </div>
@@ -94,7 +94,7 @@ export default {
 <style scoped lang='less'>
 .play-list-detail-top {
   position: relative;
-  .img-box {
+  .img-wrap {
     height: 2.8rem;
     overflow: hidden;
     .cover-img {

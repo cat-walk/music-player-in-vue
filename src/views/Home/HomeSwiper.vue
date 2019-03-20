@@ -4,7 +4,7 @@
   <swiper v-if="banners.length>1" :options="swiperOption" ref="mySwiper" class="swiper">
     <!-- slides -->
     <swiper-slide v-for="(item,index) in banners" :key="index" class="swiper-slide">
-      <div class="img-box">
+      <div class="img-wrap">
         <img class="banner-img" :src="item.imageUrl" alt>
       </div>
     </swiper-slide>
@@ -55,7 +55,7 @@ export default {
 <style lang="less" scoped>
 .swiper {
   .swiper-slide {
-    .img-box {
+    .img-wrap {
       margin: 0 auto; // 实现轮播图水平居中
       width: 96%;
       .banner-img {

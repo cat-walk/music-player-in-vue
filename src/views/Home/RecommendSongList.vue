@@ -4,7 +4,7 @@
     <h1 class="recom-songlist-header">推荐歌单 ></h1>
     <ul class="songlist-group">
       <li v-for="(item, index) in recomSongList" :key="index" class="songlist-item">
-        <div class="img-box">
+        <div class="img-wrap">
           <img :src="item.picUrl" alt class="songlist-cover">
           <div class="play-count-box">
             <i class="iconfont icon-erji"></i>
@@ -59,7 +59,7 @@ export default {
     position: relative;
     width: 32%;
     margin: 0.1rem 0;
-    .img-box {
+    .img-wrap {
       border-radius: 0.02rem;
       overflow: hidden;
       .songlist-cover {
