@@ -9,7 +9,7 @@
     </header>
     <section class="main">
       <div class="cover-img-box rotate" ref="rotateCD">
-        <div class="cover-img-wrap">
+        <div class="img-wrap">
           <img alt class="cover-img" v-lazy="this.$route.params.coverImgUrl">
         </div>
       </div>
@@ -116,7 +116,6 @@ export default {
 <style scoped lang='less'>
 // lazy-load样式
 img[lazy="loading"] {
-  background: #d44439;
   width: 100%;
   height: 100%;
 }
@@ -166,7 +165,7 @@ img[lazy="loading"] {
       &.rotate {
         animation: infiniteRotate 10s infinite linear;
       }
-      .cover-img-wrap {
+      .img-wrap {
         width: 70%;
         height: 70%; // 设置高度以让子元素宽高相同
         margin: 15% auto 0;

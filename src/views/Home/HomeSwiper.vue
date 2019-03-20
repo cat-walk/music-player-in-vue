@@ -5,7 +5,7 @@
     <!-- slides -->
     <swiper-slide v-for="(item,index) in banners" :key="index" class="swiper-slide">
       <div class="img-wrap">
-        <img class="banner-img" :src="item.imageUrl" alt>
+        <img class="banner-img" v-lazy="item.imageUrl" alt>
       </div>
     </swiper-slide>
     <!-- Optional controls -->
@@ -53,6 +53,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+img[lazy=loading]{
+  width: 100%;
+  height: 1.4rem;
+}
+
 .swiper {
   .swiper-slide {
     .img-wrap {

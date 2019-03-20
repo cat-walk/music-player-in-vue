@@ -120,6 +120,11 @@ export default {
 </script>
 
 <style scoped lang='less'>
+img[lazy=loading]{
+  width: .5rem;
+  height: .5rem;
+}
+
 .footer-control-panel {
   border-top: 1px solid #e4e4e4;
   position: fixed;

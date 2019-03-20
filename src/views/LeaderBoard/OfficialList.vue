@@ -5,7 +5,7 @@
       <li v-for="(item, index) in officialList" :key="index" class="offical-list-unit">
         <router-link :to="{path: '/play-list-detail', query: {id: item.id}}">
           <div class="img-wrap">
-            <img :src="item.coverImgUrl" alt class="coverImg">
+            <img v-lazy="item.coverImgUrl" alt class="coverImg">
           </div>
           <div class="tracks-box">
             <p
@@ -27,6 +27,11 @@ export default {
 </script>
 
 <style scoped lang='less'>
+img[lazy=loading]{
+  width: 1rem;
+  height: 1rem;
+}
+
 a {
   display: flex;
   align-items: center;

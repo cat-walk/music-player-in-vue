@@ -5,7 +5,7 @@
     <ul class="songlist-group">
       <li v-for="(item, index) in recomSongList" :key="index" class="songlist-item">
         <div class="img-wrap">
-          <img :src="item.picUrl" alt class="songlist-cover">
+          <img v-lazy="item.picUrl" alt class="songlist-cover">
           <div class="play-count-box">
             <i class="iconfont icon-erji"></i>
             {{(item.playCount/10000).toFixed(0)}}万
@@ -44,6 +44,11 @@ export default {
 </script>
 
 <style scoped lang='less'>
+img[lazy=loading]{
+  width: 1rem;
+  height: 1rem;
+}
+
 .recom-songlist-header {
   font-size: 0.17rem;
   padding-left: 0.03rem;

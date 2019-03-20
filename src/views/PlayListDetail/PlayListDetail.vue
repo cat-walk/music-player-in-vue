@@ -92,6 +92,11 @@ export default {
 </script>
 
 <style scoped lang='less'>
+img[lazy=loading]{
+  width: 3.75rem;
+  height: 3.75rem;
+}
+
 .play-list-detail-top {
   position: relative;
   .img-wrap {

@@ -5,7 +5,7 @@
       <li v-for="(item, index) in data" :key="index" class="top-list-unit">
         <router-link :to="{path: '/play-list-detail', query: {id: item.id}}">
           <div class="img-wrap">
-            <img :src="item.coverImgUrl" alt class="coverImg">
+            <img v-lazy="item.coverImgUrl" alt class="coverImg">
           </div>
           <h3 class="top-list-title">{{item.name}}</h3>
         </router-link>
@@ -22,6 +22,11 @@ export default {
 </script>
 
 <style scoped lang='less'>
+img[lazy=loading]{
+  width: 1rem;
+  height: 1rem;
+}
+
 .top-list-box {
   padding-top: 0.14rem;
   .top-list-item-title {
