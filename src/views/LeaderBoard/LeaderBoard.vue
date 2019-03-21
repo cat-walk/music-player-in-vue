@@ -34,7 +34,6 @@ export default {
     getToplistDetail()
       .then((res) => {
         const { list } = res;
-        console.log(list);
         this.officialList = list.slice(0, 4);
         this.recommendList = list.slice(4, 10);
         this.internationalList = list.slice(10, 16);
