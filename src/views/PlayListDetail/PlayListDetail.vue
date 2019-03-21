@@ -17,20 +17,7 @@
         </div>
         <div class="star-me">+ 收藏（{{subscribedCount | formatToTenThousand}}万）</div>
       </div>
-      <ul class="track-list">
-        <li class="track-item" v-for="(item, index) in tracks" :key="index">
-          <router-link
-            :to="{name: 'song', query: {name: item.name, singers: formatSinger(item.ar), id:item.id}, params: {coverImgUrl: item.al.picUrl}}"
-            class="link-to-play-control"
-          >
-            <div class="track-rank">{{index + 1}}</div>
-            <div class="track-info">
-              <p class="track-title">{{item.name}}</p>
-              <p class="track-desc ellipsis">{{formatSinger(item.ar)}} - {{item.al.name}}</p>
-            </div>
-          </router-link>
-        </li>
-      </ul>
+      <song-list :tracks="tracks"></song-list>
     </section>
   </section>
 </template>
@@ -38,6 +25,7 @@
 <script>
 import moment from 'moment'; // 引入Moment.js插件
 import BackHeader from '../../components/BackHeader.vue';
+import SongList from './SongList.vue';
 import { getPlayListDetail } from '../../api/PlayListDetail/PlayListDetail';
 
 moment.locale('zh-cn'); // 设置moment显示中文
@@ -55,6 +43,7 @@ export default {
   },
   components: {
     BackHeader,
+    SongList,
   },
   methods: {
     getData() {
@@ -70,14 +59,6 @@ export default {
         this.subscribedCount = playlist.subscribedCount;
       });
     },
-    formatSinger(singerList) {
-      // 拿出列表里面每一项的name，中间用'/'分隔
-      let formatedStr = '';
-      singerList.forEach((item, index) => {
-        formatedStr += `${item.name}/`;
-      });
-      return formatedStr.slice(0, -1);
-    },
   },
   filters: {
     formatToTenThousand(value) {
@@ -92,7 +73,8 @@ export default {
 </script>
 
 <style scoped lang='less'>
-img[lazy=loading]{
+// TODO: 做成全局懒加载的话，这个代码放哪里？
+img[lazy="loading"] {
   width: 3.75rem;
   height: 3.75rem;
 }
@@ -154,38 +136,5 @@ img[lazy=loading]{
       font-size: 0.16rem;
     }
   }
-  .track-list {
-    .track-item {
-      .link-to-play-control {
-        display: flex;
-        align-items: center;
-        height: 0.6rem;
-        border-bottom: 1px solid #e4e4e4;
-        .track-rank {
-          text-align: center;
-          width: 16%;
-          font-size: 0.18rem;
-        }
-        .track-info {
-          width: 84%;
-          .track-title {
-            font-size: 0.16rem;
-          }
-          .track-desc {
-            font-size: 0.14rem;
-            color: #757575;
-          }
-        }
-      }
-    }
-  }
-}
-
-// TODO: 做成全局懒加载的话，这个代码放哪里？
-image[lazy="loading"] {
-  width: 40px;
-  height: 300px;
-  margin: auto;
-  background: #000;
 }
 </style>
