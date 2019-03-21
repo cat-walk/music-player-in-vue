@@ -1,7 +1,8 @@
 <template>
   <Header :class="headerClass">
-    <back-btn/>
-    <span class="back-header-title">{{title}}</span>
+    <back-btn></back-btn>
+    <input v-if="input" type="text" class="header-input" autofocus>
+    <span v-if="title" class="back-header-title">{{title}}</span>
   </Header>
 </template>
 
@@ -17,7 +18,7 @@ export default {
   components: {
     BackBtn,
   },
-  props: ['title', 'color'],
+  props: ['title', 'color', 'input'],
   mounted() {
     this.headerClass = `back-header ${this.color}`;
   },
@@ -45,6 +46,15 @@ export default {
     margin: 0 0.05rem;
     font-size: 0.18rem;
     font-weight: 400;
+  }
+  .header-input {
+    width: 85%;
+    height: 0.28rem;
+    margin-left: 0.1rem;
+    border: none;
+    border-bottom: 1px solid #e6e6e6;
+    background: #d44439;
+    color: #e6e6e6;
   }
 }
 </style>

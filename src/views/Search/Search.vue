@@ -1,15 +1,13 @@
 <template>
   <div class="search-box" ref="searchBox">
     <div class="search-top">
-      <!-- <i class="iconfont icon-flow" @click='goBack'></i> -->
-      <back-btn></back-btn>
-      <input type="text" class='search-input'>
+      <back-header input=1 color='red'></back-header>
     </div>
   </div>
 </template>
 
 <script>
-import BackBtn from '../../components/BackBtn.vue';
+import BackHeader from '../../components/BackHeader.vue';
 
 export default {
   data() {
@@ -27,7 +25,7 @@ export default {
     this.$refs.searchBox.style.height = `${screen.height}px`;
   },
   components: {
-    BackBtn,
+    BackHeader,
   },
 };
 </script>
@@ -40,8 +38,5 @@ export default {
   left: 0;
   width: 100%;
   background: white;
-  .search-input{
-    border-bottom: 1px solid gray;
-  }
 }
 </style>
