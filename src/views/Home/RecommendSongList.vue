@@ -4,14 +4,16 @@
     <h1 class="recom-songlist-header">推荐歌单 ></h1>
     <ul class="songlist-group">
       <li v-for="(item, index) in recomSongList" :key="index" class="songlist-item">
-        <div class="img-wrap">
-          <img v-lazy="item.picUrl" alt class="songlist-cover">
-          <div class="play-count-box">
-            <i class="iconfont icon-erji"></i>
-            {{(item.playCount/10000).toFixed(0)}}万
+        <router-link :to="{path: '/play-list-detail', query: {id: item.id}}">
+          <div class="img-wrap">
+            <img v-lazy="item.picUrl" alt class="songlist-cover">
+            <div class="play-count-box">
+              <i class="iconfont icon-erji"></i>
+              {{(item.playCount/10000).toFixed(0)}}万
+            </div>
           </div>
-        </div>
-        <p class="songlist-title">{{item.name}}</p>
+          <p class="songlist-title">{{item.name}}</p>
+        </router-link>
       </li>
     </ul>
   </div>
@@ -44,7 +46,7 @@ export default {
 </script>
 
 <style scoped lang='less'>
-img[lazy=loading]{
+img[lazy="loading"] {
   width: 1rem;
   height: 1rem;
 }
@@ -72,10 +74,10 @@ img[lazy=loading]{
         height: 100%;
       }
     }
-    .play-count-box{
+    .play-count-box {
       position: absolute;
-      top: .03rem;
-      right: .03rem;
+      top: 0.03rem;
+      right: 0.03rem;
       color: #f1f1f1;
     }
     .songlist-title {
