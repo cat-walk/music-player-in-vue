@@ -1,13 +1,14 @@
 <template>
   <div class="search-box" ref="searchBox">
     <div class="search-top">
-      <back-header input=1 color='red'></back-header>
+      <back-header input="1" color="red"></back-header>
     </div>
   </div>
 </template>
 
 <script>
 import BackHeader from '../../components/BackHeader.vue';
+import { getScreenHeight } from '../../utils/utils';
 
 export default {
   data() {
@@ -22,7 +23,7 @@ export default {
   },
   mounted() {
     // 使得搜索组件充满整个屏幕
-    this.$refs.searchBox.style.height = `${screen.height}px`;
+    this.$refs.searchBox.style.height = getScreenHeight();
   },
   components: {
     BackHeader,

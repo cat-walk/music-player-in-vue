@@ -46,6 +46,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import BackBtn from '../../components/BackBtn.vue';
+import { getScreenHeight } from '../../utils/utils';
 
 export default {
   data() {
@@ -63,8 +64,7 @@ export default {
     ...mapActions(['getThenSetSongInfo', 'getThenSetIsPlaying']),
     // 设置页面高度为铺满整个屏幕
     setPageHeight() {
-      this.$refs.pageWrap.style.height = `${document.documentElement
-        .clientHeight / 100}rem`;
+      this.$refs.pageWrap.style.height = getScreenHeight();
     },
     toggleToPlayStatus() {
       this.iconClassname = 'iconfont icon-zanting';
