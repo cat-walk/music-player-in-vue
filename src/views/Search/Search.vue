@@ -1,14 +1,15 @@
 <template>
   <div class="search-box left-right-padding-box" ref="searchBox">
-    <back-header :inputCallBack="getUserInput" color="red" :doAfterUserEnter="doAfterUserEnter"></back-header>
-    <two-search-list v-if="!showResultPageFlag" :hots="hots" :history="history"></two-search-list>
+    <back-header :inputCallBack="getUserInput" color="red" :doAfterUserEnter="startSearch"></back-header>
+    <search-list v-if="!showResultPageFlag" :doAfterUserClick='startSearch' :list="hots" title="热门搜索" class="hot-search"></search-list>
+    <search-list v-if="!showResultPageFlag" :doAfterUserClick='startSearch' :list="history" title="历史记录"></search-list>
     <search-result-list v-else :tracks="songList" class="search-result-list"></search-result-list>
   </div>
 </template>
 
 <script>
 import BackHeader from '../../components/BackHeader.vue';
-import TwoSearchList from './TwoSearchList.vue';
+import SearchList from './SearchList.vue';
 import SearchResultList from './SearchResultList.vue';
 import { getScreenHeight } from '../../utils/utils';
 import { getHotSearch } from '../../api/Search/Search';
@@ -17,14 +18,14 @@ import { getSearchResult } from '../../api/SearchResult';
 export default {
   components: {
     BackHeader,
-    TwoSearchList,
+    SearchList,
     SearchResultList,
   },
   data() {
     return {
       hots: [],
       showResultPageFlag: false,
-      userInput: '',
+      userInput: '', // TODO: the data maybe useless
       history: [],
       songList: [],
     };
@@ -37,14 +38,15 @@ export default {
     switchToResult() {
       this.showResultPageFlag = true;
     },
-    doAfterUserEnter() {
+    startSearch(theValueToSearch) {
+      // debugger;
       this.switchToResult();
-      this.getSearchResultData();
+      this.getSearchResultData(theValueToSearch);
       // push一个对象进history数组的原因是，为了使得history和hots的格式一致，这样这两部分才能共用一个SearchList组件
-      this.history.push({ first: this.userInput });
+      this.history.push({ first: theValueToSearch });
     },
-    async getSearchResultData() {
-      const data = await getSearchResult(this.userInput);
+    async getSearchResultData(theValueToSearch) {
+      const data = await getSearchResult(theValueToSearch);
       this.songList = data.result.songs;
     },
     // 该方法用于获取子组件 BackHeader 的 userInput 数据
@@ -75,6 +77,9 @@ export default {
   left: 0;
   width: 100%;
   background: white;
+  .hot-search {
+    margin-top: 0.44rem;
+  }
   .search-result-list {
     padding-top: 0.44rem;
   }

@@ -45,7 +45,7 @@ export default {
       this.userInput = null;
     },
     handleEnter() {
-      this.doAfterUserEnter();
+      this.doAfterUserEnter(this.userInput);
       // 每次用户敲击enter键，执行完父组件传来的回调函数后，都要清空用户的输入
       this.cleanUserInput();
     },

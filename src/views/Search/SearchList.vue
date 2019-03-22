@@ -1,11 +1,9 @@
 <template>
-  <section class="container">
+  <section class="container" @click='handleClick'>
     <h2 class="title">{{title}}</h2>
     <ul class="search-list">
       <li v-for="(item, index) in list" :key="index" class="item">
-        <!-- <router-link to=""> -->
         {{item.first}}
-        <!-- </router-link> -->
       </li>
     </ul>
   </section>
@@ -13,7 +11,15 @@
 
 <script>
 export default {
-  props: ['list', 'title'],
+  props: ['list', 'title', 'doAfterUserClick'],
+  methods: {
+    handleClick(e) {
+      const src = e.target;
+      if (src.className === 'item') {
+        this.doAfterUserClick(src.innerText);
+      }
+    },
+  },
 };
 </script>
 
