@@ -1,23 +1,24 @@
 <template>
   <div class="search-box left-right-padding-box" ref="searchBox">
-    <back-header :inputCallBack="getUserInput" color="red" :doAfterEnter="switchToResult"></back-header>
+    <back-header :inputCallBack="getUserInput" color="red" :doAfterUserEnter="doAfterUserEnter"></back-header>
     <two-search-list v-if="!showResultPageFlag" :hots="hots" :history="history"></two-search-list>
-    <search-result v-else :userInput="userInput"></search-result>
+    <search-result-list v-else :tracks="songList" class="search-result-list"></search-result-list>
   </div>
 </template>
 
 <script>
 import BackHeader from '../../components/BackHeader.vue';
-import SearchResult from './SearchResult.vue';
 import TwoSearchList from './TwoSearchList.vue';
+import SearchResultList from './SearchResultList.vue';
 import { getScreenHeight } from '../../utils/utils';
 import { getHotSearch } from '../../api/Search/Search';
+import { getSearchResult } from '../../api/SearchResult';
 
 export default {
   components: {
     BackHeader,
-    SearchResult,
     TwoSearchList,
+    SearchResultList,
   },
   data() {
     return {
@@ -25,14 +26,8 @@ export default {
       showResultPageFlag: false,
       userInput: '',
       history: [],
+      songList: [],
     };
-  },
-  watch: {
-    showResultPageFlag(newFlag) {
-      // 当用户进行搜索，即当前页面显示搜索结果组件时，记录用户输入的搜索词
-      // push一个对象进history数组的原因是，为了使得history和hots的格式一致，这样这两部分才能共用一个SearchList组件
-      if (newFlag) this.history.push({ first: this.userInput });
-    },
   },
   methods: {
     async getData() {
@@ -42,7 +37,16 @@ export default {
     switchToResult() {
       this.showResultPageFlag = true;
     },
-
+    doAfterUserEnter() {
+      this.switchToResult();
+      this.getSearchResultData();
+      // push一个对象进history数组的原因是，为了使得history和hots的格式一致，这样这两部分才能共用一个SearchList组件
+      this.history.push({ first: this.userInput });
+    },
+    async getSearchResultData() {
+      const data = await getSearchResult(this.userInput);
+      this.songList = data.result.songs;
+    },
     // 该方法用于获取子组件 BackHeader 的 userInput 数据
     getUserInput(userInput) {
       this.userInput = userInput;
@@ -71,5 +75,8 @@ export default {
   left: 0;
   width: 100%;
   background: white;
+  .search-result-list {
+    padding-top: 0.44rem;
+  }
 }
 </style>

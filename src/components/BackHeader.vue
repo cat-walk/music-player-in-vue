@@ -45,7 +45,7 @@ export default {
       this.userInput = null;
     },
     handleEnter() {
-      this.doAfterEnter();
+      this.doAfterUserEnter();
       // 每次用户敲击enter键，执行完父组件传来的回调函数后，都要清空用户的输入
       this.cleanUserInput();
     },
@@ -67,7 +67,7 @@ export default {
     BackBtn,
   },
   // input参数是来自父组件的方法，用于获取用户输入的值userInput
-  props: ['title', 'color', 'inputCallBack', 'doAfterEnter'],
+  props: ['title', 'color', 'inputCallBack', 'doAfterUserEnter'],
   mounted() {
     this.headerClass = `back-header ${this.color}`;
   },
