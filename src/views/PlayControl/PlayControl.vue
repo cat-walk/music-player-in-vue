@@ -109,7 +109,6 @@ export default {
   mounted() {
     // 设置页面高度为整屏
     this.setPageHeight();
-    console.log(this.$route.params.coverImgUrl);
   },
 };
 </script>
