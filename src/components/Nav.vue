@@ -6,9 +6,9 @@
       </button>
       <router-link to="/home">推荐页</router-link>
       <router-link to="/my">我的</router-link>
-      <button @click="toSearch">
+      <router-link to="/search">
         <i class="iconfont icon-sousuo"></i>
-      </button>
+      </router-link>
     </header>
   </div>
 </template>
@@ -16,9 +16,9 @@
 <script>
 export default {
   methods: {
-    toSearch() {
+    /*     toSearch() {
       this.$router.push('/search');
-    },
+    }, */
   },
 };
 </script>
