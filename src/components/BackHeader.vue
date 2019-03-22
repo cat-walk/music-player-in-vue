@@ -3,7 +3,7 @@
     <back-btn></back-btn>
     <span v-if="title" class="back-header-title">{{title}}</span>
     <input
-      v-if="inputCallBack"
+      v-if="input"
       v-model="userInput"
       @change="getData"
       type="text"
@@ -54,7 +54,6 @@ export default {
     userInput(newUserInput) {
       // 该判定条件防止这种情况：输入框已经为空，但用户还在不断删除时，仍然发起无用请求
       if (newUserInput !== '') this.getData(newUserInput);
-      this.inputCallBack(newUserInput);
     },
   },
   computed: {
@@ -67,7 +66,7 @@ export default {
     BackBtn,
   },
   // input参数是来自父组件的方法，用于获取用户输入的值userInput
-  props: ['title', 'color', 'inputCallBack', 'doAfterUserEnter'],
+  props: ['title', 'color', 'doAfterUserEnter', 'input'],
   mounted() {
     this.headerClass = `back-header ${this.color}`;
   },

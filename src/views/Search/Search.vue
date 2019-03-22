@@ -1,6 +1,6 @@
 <template>
   <div class="search-box left-right-padding-box" ref="searchBox">
-    <back-header :inputCallBack="getUserInput" color="red" :doAfterUserEnter="startSearch"></back-header>
+    <back-header color="red" :input='true' :doAfterUserEnter="startSearch"></back-header>
     <search-list v-if="!showResultPageFlag" :doAfterUserClick='startSearch' :list="hots" title="热门搜索" class="hot-search"></search-list>
     <search-list v-if="!showResultPageFlag" :doAfterUserClick='startSearch' :list="history" title="历史记录"></search-list>
     <search-result-list v-else :tracks="songList" class="search-result-list"></search-result-list>
@@ -25,7 +25,6 @@ export default {
     return {
       hots: [],
       showResultPageFlag: false,
-      userInput: '', // TODO: the data maybe useless
       history: [],
       songList: [],
     };
@@ -48,10 +47,6 @@ export default {
     async getSearchResultData(theValueToSearch) {
       const data = await getSearchResult(theValueToSearch);
       this.songList = data.result.songs;
-    },
-    // 该方法用于获取子组件 BackHeader 的 userInput 数据
-    getUserInput(userInput) {
-      this.userInput = userInput;
     },
   },
   created() {
