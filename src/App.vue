@@ -9,7 +9,10 @@
         </div>
       </nav>
       <main id="panel">
-        <router-view></router-view>
+        <!-- keep-alive的作用是：保存未登录状态下，用户的搜索历史。是通过缓存整个搜索组件做到的 -->
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
         <!-- router-view放在合适的地方，slideout才能正常工作 -->
       </main>
     </Slideout>
@@ -34,7 +37,6 @@ export default {
 </script>
 
 <style scoped lang='less'>
-
 /* slideout样式 */
 body {
   width: 100%;
@@ -54,11 +56,11 @@ body {
   display: none;
   background-color: #1d1f20;
   color: white;
-  .menu-top{
+  .menu-top {
     height: 1rem;
     background: #000;
   }
-  .menu-body{
+  .menu-body {
     height: 10rem;
     background: #fff;
   }

@@ -3,13 +3,13 @@
     <back-btn></back-btn>
     <span v-if="title" class="back-header-title">{{title}}</span>
     <input
-      v-if="input"
+      v-if="inputCallBack"
       v-model="userInput"
       @change="getData"
       type="text"
       class="header-input"
       autofocus
-      @keydown.enter='doAfterEnter'
+      @keydown.enter="handleEnter"
     >
     <div v-if="searchSuggestionsFlag" class="search-suggestions-container">
       <ul class="search-suggestions-list">
@@ -41,15 +41,24 @@ export default {
       const data = await getSearchSuggestions(newValue);
       this.allMatch = data.result.allMatch;
     },
+    cleanUserInput() {
+      this.userInput = null;
+    },
+    handleEnter() {
+      this.doAfterEnter();
+      // 每次用户敲击enter键，执行完父组件传来的回调函数后，都要清空用户的输入
+      this.cleanUserInput();
+    },
   },
   watch: {
-    userInput(newValue) {
+    userInput(newUserInput) {
       // 该判定条件防止这种情况：输入框已经为空，但用户还在不断删除时，仍然发起无用请求
-      if (newValue !== '') this.getData(newValue);
-      this.input(newValue);
+      if (newUserInput !== '') this.getData(newUserInput);
+      this.inputCallBack(newUserInput);
     },
   },
   computed: {
+    // 搜索建议的显示完全依赖于用户的输入情况
     searchSuggestionsFlag() {
       return this.userInput !== null && this.userInput !== '';
     },
@@ -58,7 +67,7 @@ export default {
     BackBtn,
   },
   // input参数是来自父组件的方法，用于获取用户输入的值userInput
-  props: ['title', 'color', 'input', 'doAfterEnter'],
+  props: ['title', 'color', 'inputCallBack', 'doAfterEnter'],
   mounted() {
     this.headerClass = `back-header ${this.color}`;
   },

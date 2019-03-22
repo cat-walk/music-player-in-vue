@@ -1,8 +1,8 @@
 <template>
   <div class="search-box left-right-padding-box" ref="searchBox">
-    <back-header :input="getUserInput" color="red" :doAfterEnter='switchToResult' ></back-header>
-    <two-search-list v-if='!showResultPageFlag' :hots='hots'></two-search-list>
-    <search-result v-if='showResultPageFlag' :userInput="userInput"></search-result>
+    <back-header :inputCallBack="getUserInput" color="red" :doAfterEnter="switchToResult"></back-header>
+    <two-search-list v-if="!showResultPageFlag" :hots="hots" :history="history"></two-search-list>
+    <search-result v-else :userInput="userInput"></search-result>
   </div>
 </template>
 
@@ -24,7 +24,15 @@ export default {
       hots: [],
       showResultPageFlag: false,
       userInput: '',
+      history: [],
     };
+  },
+  watch: {
+    showResultPageFlag(newFlag) {
+      // 当用户进行搜索，即当前页面显示搜索结果组件时，记录用户输入的搜索词
+      // push一个对象进history数组的原因是，为了使得history和hots的格式一致，这样这两部分才能共用一个SearchList组件
+      if (newFlag) this.history.push({ first: this.userInput });
+    },
   },
   methods: {
     async getData() {
@@ -46,6 +54,11 @@ export default {
   mounted() {
     // 使得搜索组件充满整个屏幕
     this.$refs.searchBox.style.height = getScreenHeight();
+  },
+  // 该局部路由守卫的作用是让每次跳转进搜索界面时，都显示热门搜索和历史记录，而不是搜索结果
+  beforeRouteLeave(to, from, next) {
+    this.showResultPageFlag = false;
+    next();
   },
 };
 </script>
