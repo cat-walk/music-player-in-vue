@@ -16,6 +16,7 @@ import { getHotSearch } from '../../api/Search/Search';
 import { getSearchResult } from '../../api/SearchResult';
 
 export default {
+  name: 'Search',
   components: {
     BackHeader,
     SearchList,

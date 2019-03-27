@@ -11,6 +11,7 @@
 
 <script>
 export default {
+  name: 'SearchList',
   props: ['list', 'title', 'doAfterUserClick'],
   methods: {
     handleClick(e) {
