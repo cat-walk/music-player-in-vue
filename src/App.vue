@@ -4,13 +4,19 @@
     <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" @on-open="open">
       <nav id="menu">
         <div>
-          <div class="menu-top"></div>
+          <div class="menu-top">
+            <p class="login-desc1">登录网易云音乐</p>
+            <p class="login-desc2">手机电脑多端同步，尽享海量高品质音乐</p>
+            <div class="login-btn-container">
+                <button class="login-btn" @click='toLoginPage'>立即登录</button>
+            </div>
+          </div>
           <div class="menu-body"></div>
         </div>
       </nav>
       <main id="panel">
-        <!-- keep-alive的作用是：保存未登录状态下，用户的搜索历史。是通过缓存整个搜索组件做到的 -->
-        <keep-alive>
+        <!-- keep-alive的作用是：保存未登录状态下，用户的搜索历史。是通过缓存搜索组件和其子组件SearchList做到的 -->
+        <keep-alive :include="['Search', 'SearchList']">
           <router-view></router-view>
         </keep-alive>
         <!-- router-view放在合适的地方，slideout才能正常工作 -->
@@ -32,6 +38,10 @@ export default {
     open() {
       console.log('slideoutOpen');
     },
+    toLoginPage() {
+      this.$children[1].slideout.close();
+      this.$router.push('/login');
+    },
   },
 };
 </script>
@@ -48,7 +58,7 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 256px;
+  width: 80%;
   height: 100vh;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -58,7 +68,25 @@ body {
   color: white;
   .menu-top {
     height: 1rem;
+    padding-top: 0.4rem;
     background: #000;
+    .login-desc1,
+    .login-desc2 {
+      color: lightgray;
+      text-align: center;
+      padding-bottom: 0.02rem;
+    }
+    .login-btn-container {
+      padding-top: 0.1rem;
+      text-align: center;
+      .login-btn {
+        border: 1px solid lightgray;
+        padding: 0.05rem 0.35rem;
+        border-radius: 0.14rem;
+        background: #000;
+        color: #f1f1f1;
+      }
+    }
   }
   .menu-body {
     height: 10rem;
