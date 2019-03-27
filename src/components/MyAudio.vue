@@ -80,7 +80,7 @@ export default {
     toSongComponent() {
       // 下面这行代码有很大的改进空间，这些参数在另一种方案下应该就不需要这样传来传去了
       this.$router.push({
-        name: 'song',
+        name: 'Song',
         query: {
           name: this.songInfo.name,
           singers: this.songInfo.singers,
@@ -97,7 +97,7 @@ export default {
       // emmmmmmmm 这个判定条件写的真好
       // 不在‘song'路由，且audio里有歌时(标志位为duration不为NaN）才显示（后者是为了避嫌没歌的时候没有封面的尴尬情况）
       if (
-        this.$route.name !== 'song'
+        this.$route.name !== 'Song'
         && this.$refs.audio
         && this.$refs.audio.duration
       ) {

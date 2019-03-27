@@ -2,7 +2,7 @@
   <ul class="track-list">
     <li class="track-item" v-for="(item, index) in tracks" :key="index">
       <router-link
-        :to="{name: 'song', query: {name: item.name, singers: formatSinger(item.ar), id:item.id}, params: {coverImgUrl: item.al.picUrl}}"
+        :to="{name: 'Song', query: {name: item.name, singers: formatSinger(item.ar), id:item.id}, params: {coverImgUrl: item.al.picUrl}}"
         class="link-to-play-control"
       >
         <div class="track-rank">{{index + 1}}</div>
