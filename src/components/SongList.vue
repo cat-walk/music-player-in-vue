@@ -16,9 +16,10 @@
 </template>
 
 <script>
-import { formatSinger } from '../../utils/utils';
+import { formatSinger } from '../utils/utils';
 
 export default {
+  name: 'SongList',
   props: ['tracks'],
   methods: {
     formatSinger,

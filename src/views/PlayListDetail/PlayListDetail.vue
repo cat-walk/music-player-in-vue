@@ -25,12 +25,13 @@
 <script>
 import moment from 'moment'; // 引入Moment.js插件
 import BackHeader from '../../components/BackHeader.vue';
-import SongList from './SongList.vue';
+import SongList from '../../components/SongList.vue';
 import { getPlayListDetail } from '../../api/PlayListDetail/PlayListDetail';
 
 moment.locale('zh-cn'); // 设置moment显示中文
 
 export default {
+  name: 'PlaylistDetail',
   data() {
     return {
       coverImgUrl: '',

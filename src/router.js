@@ -7,6 +7,7 @@ import LeaderBoard from './views/LeaderBoard/LeaderBoard.vue'; // 优化了项�
 import PlayListDetail from './views/PlayListDetail/PlayListDetail.vue';
 import PlayControl from './views/PlayControl/PlayControl.vue';
 import Login from './views/Login/Login.vue';
+import RecentPlay from './views/RecentPlay/RecentPlay.vue';
 
 Vue.use(Router);
 
@@ -50,6 +51,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login,
+    },
+    {
+      path: '/recent-play/:data',
+      name: 'RecentPlay',
+      component: RecentPlay,
     },
   ],
 });

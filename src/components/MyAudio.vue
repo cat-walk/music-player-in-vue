@@ -34,6 +34,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
+  name: 'MyAudio',
   data() {
     return {
       iconClassname: 'iconfont icon-bofang1',

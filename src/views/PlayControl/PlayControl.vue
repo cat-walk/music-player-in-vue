@@ -49,6 +49,7 @@ import BackBtn from '../../components/BackBtn.vue';
 import { getScreenHeight } from '../../utils/utils';
 
 export default {
+  name: 'PlayControl',
   data() {
     return {
       iconClassname: 'iconfont icon-zanting',
