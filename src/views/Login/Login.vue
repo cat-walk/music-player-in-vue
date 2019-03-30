@@ -1,22 +1,34 @@
 <template>
   <section class="login-wrap">
     <back-header title="手机号登录" color="red"></back-header>
-    <div class="phone-number-container">
-      <i class="iconfont icon-shouji"></i>
-      <span class="country-code">+86</span>
-      <input class="tel-input" type="tel" autofocus v-model="tel">
-      <button class="clean-btn" @click="cleanTel">
-        <i class="iconfont icon-chahao"></i>
-      </button>
-    </div>
-    <div class="password-container">
-      <i class="iconfont icon-suo"></i>
-      <input class="password-input" type="password" placeholder="请输入密码" v-model="password">
-    </div>
-    <div class="login-btn-container">
-      <button class="login-btn" @click="tryToLogin">登录</button>
-    </div>
-    <reminder :word="reminderWord" :ifShow="reminderFlag" :callback='resetReminder'></reminder>
+    <form action @submit="tryToLogin">
+      <div class="phone-number-container">
+        <label>
+          <i class="iconfont icon-shouji"></i>
+          <span class="country-code">+86</span>
+        </label>
+        <input class="tel-input" type="tel" autofocus v-model="tel" required pattern="^1[34578]\d{9}">
+        <button class="clean-btn" @click="cleanTel">
+          <i class="iconfont icon-chahao"></i>
+        </button>
+      </div>
+      <div class="password-container">
+        <label for>
+          <i class="iconfont icon-suo"></i>
+        </label>
+        <input
+          class="password-input"
+          type="password"
+          placeholder="请输入密码"
+          v-model="password"
+          required
+        >
+      </div>
+      <div class="login-btn-container">
+        <input class="login-btn" type="submit" value="登录">
+      </div>
+    </form>
+    <reminder :word="reminderWord" :ifShow="reminderFlag" :callback="resetReminder"></reminder>
   </section>
 </template>
 
@@ -38,10 +50,13 @@ export default {
     cleanTel() {
       this.tel = null;
     },
-    tryToLogin() {
+    tryToLogin(e) {
+      e.preventDefault();
       login(this.tel, this.password).then(
         (res) => {
-          console.log(res, 'success');
+          console.log(res);
+          localStorage.setItem('uid', res.account.id); // 先将用户的id即uid存储在localStorage里
+          this.$router.push('/my');
         },
         (err) => {
           console.dir(err, 'failed');
@@ -78,13 +93,11 @@ export default {
   }
   .iconfont {
     font-size: 18px;
-  }
-  .iconfont {
     color: gray;
   }
   .country-code {
-    margin: 0 0.1rem;
     font-size: 16px;
+    margin: 0 0.1rem;
   }
   .clean-btn {
     float: right;

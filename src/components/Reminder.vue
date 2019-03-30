@@ -46,7 +46,8 @@ export default {
     width: 1rem;
     height: 0.6rem;
     margin: -0.3rem 0 0 -0.5rem;
-    padding: 0.2rem;
+    padding: 0.2rem 0;
+    text-align: center;
     color: #000;
     box-shadow: 0 0 1rem #000;
     border-radius: 0.03rem;
