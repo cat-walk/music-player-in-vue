@@ -18,5 +18,4 @@ export const getUserPlaylist = uid => axios.get('/user/playlist', {
   params: {
     uid,
   },
-  // withCredentials: true,
 });
