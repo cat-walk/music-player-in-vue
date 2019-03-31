@@ -32,6 +32,7 @@ export default {
 
 <style scoped lang='less'>
 .track-list {
+  margin-bottom: 1rem;
   .track-item {
     .link-to-play-control {
       display: flex;

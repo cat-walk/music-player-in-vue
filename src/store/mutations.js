@@ -19,4 +19,7 @@ export default {
   [Types.SET_CURRENT_TIME](state, payload) {
     state.currentTime = payload;
   },
+  [Types.SET_LIKE_LIST](state, payload) {
+    state.likelist = payload;
+  },
 };

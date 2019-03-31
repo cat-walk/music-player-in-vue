@@ -17,4 +17,10 @@ export default {
   songInfo(state) {
     return state.songInfo;
   },
+  likelist(state) {
+    return state.likelist;
+  },
+  likelistCount(state) {
+    return state.likelist.length;
+  },
 };

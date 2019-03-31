@@ -29,36 +29,42 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 import Nav from '../../components/Nav.vue';
-import {
-  getUserPlayRecord,
-  getUserLikelist,
-  getUserPlaylist,
-} from '../../api/My';
+import { getUserPlayRecord, getUserPlaylist } from '../../api/My';
 
 export default {
+  name: 'My',
   data() {
     return {
       recentPlayCount: 0,
-      likelistCount: 0,
       likelistId: null,
       resPlayRecord: null,
     };
+  },
+  computed: {
+    ...mapGetters(['likelistCount']),
   },
   components: {
     Nav,
   },
   methods: {
+    ...mapActions(['getThenSetLikelist']),
     async getData() {
       const uid = localStorage.getItem('uid');
       // TODO: 下面的代码是否要等第一个请求完成后才会进行第二个请求？
       this.resPlayRecord = await getUserPlayRecord(uid);
-      const reslikeList = await getUserLikelist(uid);
-      const resUserPlaylist = await getUserPlaylist(uid);
-
+      this.getThenSetLikelist(uid);
       this.recentPlayCount = this.resPlayRecord.weekData.length;
-      this.likelistCount = reslikeList.ids.length;
-      this.likelistId = resUserPlaylist.playlist[0].id;
+      this.getLikelistId(uid);
+    },
+    async getLikelistId(uid) {
+      try {
+        const resUserPlaylist = await getUserPlaylist(uid);
+        this.likelistId = resUserPlaylist.playlist[0].id;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   created() {

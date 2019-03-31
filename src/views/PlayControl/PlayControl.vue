@@ -23,8 +23,8 @@
         <span class="total-time">{{duration | formatTime}}</span>
       </div>
       <div class="control-panel">
-        <button class="star-me-btn">
-          <i class="iconfont icon-aixin1"></i>
+        <button class="star-me-btn" @click="toggleStarStatus">
+          <i :class="starBtnStyle"></i>
         </button>
         <button class="play-last-song-btn">
           <i class="iconfont icon-shangyishoushangyige"></i>
@@ -47,6 +47,7 @@
 import { mapActions, mapGetters } from 'vuex';
 import BackBtn from '../../components/BackBtn.vue';
 import { getScreenHeight } from '../../utils/utils';
+import { toggleStarTheSong } from '../../api/PlayControl/PlayControl';
 
 export default {
   name: 'PlayControl',
@@ -56,13 +57,34 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['duration', 'isPlaying', 'currentTime']),
+    ...mapGetters([
+      'duration',
+      'isPlaying',
+      'currentTime',
+      'likelist',
+      'songInfo',
+    ]),
+    songId() {
+      return this.songInfo.id;
+    },
+    thisSongInLikelist() {
+      return this.likelist.indexOf(+this.songId) === -1;
+    },
+    starBtnStyle() {
+      return this.thisSongInLikelist
+        ? 'iconfont icon-aixin1'
+        : 'iconfont icon-aixin1 red';
+    },
   },
   components: {
     BackBtn,
   },
   methods: {
-    ...mapActions(['getThenSetSongInfo', 'getThenSetIsPlaying']),
+    ...mapActions([
+      'getThenSetSongInfo',
+      'getThenSetIsPlaying',
+      'getThenSetLikelist',
+    ]),
     // 设置页面高度为铺满整个屏幕
     setPageHeight() {
       this.$refs.pageWrap.style.height = getScreenHeight();
@@ -78,6 +100,17 @@ export default {
     toggleStatus() {
       // 切换播放和暂停状态
       this.getThenSetIsPlaying(!this.isPlaying);
+    },
+    async toggleStarStatus() {
+      try {
+        const like = this.thisSongInLikelist;
+        const res = await toggleStarTheSong(this.songId, like);
+        console.log(res);
+        const uid = localStorage.getItem('uid');
+        this.getThenSetLikelist(uid);
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   watch: {
@@ -99,6 +132,7 @@ export default {
     },
   },
   created() {
+    const uid = localStorage.getItem('uid');
     // 选中一个新的歌曲，且设置好了歌曲的url后，就将isPlaying设为true
     // 其他状态都由isPlaying的状态，或者MyAudio组件的currentTime决定
     this.getThenSetSongInfo({
@@ -106,6 +140,8 @@ export default {
       coverImgUrl: this.$route.params.coverImgUrl,
     });
     this.getThenSetIsPlaying(true); // 这行代码可能写在MyAudio的watch里更好
+    // 获取用户的收藏歌曲列表以确定爱心按钮的样式
+    this.getThenSetLikelist(uid);
   },
   mounted() {
     // 设置页面高度为整屏
@@ -212,6 +248,11 @@ img[lazy="loading"] {
         .iconfont {
           font-size: 0.3rem;
           color: #f1f1f1;
+        }
+      }
+      .star-me-btn {
+        .iconfont.red {
+          color: red;
         }
       }
       .play-stop-btn {
