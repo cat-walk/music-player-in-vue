@@ -32,14 +32,17 @@ Github地址：https://github.com/Binaryify/NeteaseCloudMusicApi
 
 banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时间写那些啦...
 
+
+
 <figure class="half">
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (1).png" style="zoom:33%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (2).png" style="zoom:33%" />
-    <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (3).png" style="zoom:33%" />
-      <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (4).png" style="zoom:33%" />
-        <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (5).png" style="zoom:33%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (6).png" style="zoom:33%" />
+  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvniaitlj30ku112e3r.jpg" style="zoom:33%" />
+  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvnggnfwj30ku112476.jpg" style="zoom:33%" />
+  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvnfmjmtj30ku112qd8.jpg" style="zoom:33%" />
+  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvneh5fcj30ku112tes.jpg" style="zoom:33%" />
+  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvndlwtaj30ku1127bn.jpg" style="zoom:33%" />
+  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvnce5e0j30ku112njf.jpg" style="zoom:33%" />
 </figure>
+
 
 
 
@@ -48,14 +51,14 @@ banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时�
 登录后展示头像和昵称，且可进入个人中心即“我的”页面，可查看收藏的音乐和最近播放过的音乐。
 
 <figure class="half">
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (12).png" style="zoom:35%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (13).png" style="zoom:35%" />
-    <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (14).png" style="zoom:35%" />
-      <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (15).png" style="zoom:35%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (16).png" style="zoom:35%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (17).png" style="zoom:35%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (18).png" style="zoom:35%" />
+  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn3o98jj30ku112gqm.jpg" style="zoom:35%" />
+  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn34sgmj30ku112jt4.jpg" style="zoom:35%" />
+  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvn2sn6zj30ku112dhl.jpg" style="zoom:35%" />
+  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn2bx81j30ku11244b.jpg" style="zoom:35%" />
+  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvy9paiaj30ku112wg5.jpg" style="zoom:35%" />
+  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvyay1i0j30ku112wrf.jpg" style="zoom:35%" />
 </figure>
+
 
 
 
@@ -63,11 +66,12 @@ banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时�
 ### 搜索模块：热门搜索、搜索历史、搜索建议
 
 <figure class="half">
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (8).png" style="zoom:33%" />
-  <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (9).png" style="zoom:33%" />
-    <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (10).png" style="zoom:33%" />
-      <img src="/Users/young/Desktop/music-player-in-vue/README.assets/127.0.0.1_3001_(iPhone 6_7_8) (11).png" style="zoom:33%" />
+  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn6c8n5j30ku112wgw.jpg" style="zoom:33%" />
+  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn5r15mj30ku11242t.jpg" style="zoom:33%" />
+  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn569iej30ku112dkd.jpg" style="zoom:33%" />
+  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn4ggqij30ku112412.jpg" style="zoom:33%" />
 </figure>
+
 
 
 
