@@ -8,10 +8,11 @@ import PlayListDetail from './views/PlayListDetail/PlayListDetail.vue';
 import PlayControl from './views/PlayControl/PlayControl.vue';
 import Login from './views/Login/Login.vue';
 import RecentPlay from './views/RecentPlay/RecentPlay.vue';
+import { getLoginStatus } from './api/SideBar';
 
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -26,6 +27,9 @@ export default new Router({
       path: '/my',
       name: 'My',
       component: My,
+      meta: {
+        needLogin: true,
+      },
     },
     {
       path: '/search',
@@ -59,3 +63,24 @@ export default new Router({
     },
   ],
 });
+
+/* // 如果后台登录接口不稳定，可以用这种临时的解决方案：通过localStorage里是否有uid来判断是否登录，而不用发请求的方式
+router.beforeEach((to, from, next) => {
+  if (to.meta.needLogin) {
+    if (localStorage.getItem('uid')) next();
+    else router.push('/login');
+  } else next();
+}); */
+
+router.beforeEach(async (to, from, next) => {
+  if (to.meta.needLogin) {
+    try {
+      const res = await getLoginStatus();
+      if (res.code === 200) next();
+    } catch (error) {
+      error.code === 301 ? router.push('/login') : console.log(error);
+    }
+  } else next();
+});
+
+export default router;

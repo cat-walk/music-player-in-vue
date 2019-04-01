@@ -1,17 +1,25 @@
 <template>
   <div>
     <my-audio></my-audio>
-    <Slideout menu="#menu" panel="#panel" :toggleSelectors="['.toggle-button']" @on-open="open">
+    <Slideout
+      menu="#menu"
+      panel="#panel"
+      :toggleSelectors="['.toggle-button']"
+      @on-open="open"
+      easing="linear"
+    >
       <nav id="menu">
         <div>
           <div class="menu-top">
-            <p class="login-desc1">登录网易云音乐</p>
-            <p class="login-desc2">手机电脑多端同步，尽享海量高品质音乐</p>
+            <p class="login-desc1">音乐给我力量</p>
+            <p class="login-desc2">Music give me power!</p>
             <div class="login-btn-container">
-                <button class="login-btn" @click='toLoginPage'>立即登录</button>
+              <button class="login-btn" @click="toLoginPage">立即登录</button>
             </div>
           </div>
-          <div class="menu-body"></div>
+          <div class="menu-body">
+            <div class="btn-wrap"><button @click='logout'>退出登录</button></div>
+          </div>
         </div>
       </nav>
       <main id="panel">
@@ -30,6 +38,7 @@
 <script>
 import Slideout from 'vue-slideout';
 import MyAudio from './components/MyAudio.vue';
+import { logout } from './api/SideBar';
 
 export default {
   components: {
@@ -37,6 +46,7 @@ export default {
     MyAudio,
   },
   methods: {
+    logout,
     open() {
       console.log('slideoutOpen');
     },
@@ -45,6 +55,11 @@ export default {
       this.$router.push('/login');
     },
   },
+
+/*   // 如果后台登录接口不稳定，可以用这种临时的解决方案：退出应用后，删除localStorage里的uid
+  created() {
+    localStorage.removeItem('uid');
+  }, */
 };
 </script>
 
@@ -60,7 +75,7 @@ body {
   position: fixed;
   top: 0;
   bottom: 0;
-  width: 80%;
+  width: 85%;
   height: 100vh;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -68,6 +83,7 @@ body {
   display: none;
   background-color: #1d1f20;
   color: white;
+  box-shadow: 0 0 2rem #000;
   .menu-top {
     height: 1rem;
     padding-top: 0.4rem;

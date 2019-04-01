@@ -54,7 +54,6 @@ export default {
       e.preventDefault();
       login(this.tel, this.password).then(
         (res) => {
-          console.log(res);
           localStorage.setItem('uid', res.account.id); // 先将用户的id即uid存储在localStorage里
           this.$router.push('/my');
         },
