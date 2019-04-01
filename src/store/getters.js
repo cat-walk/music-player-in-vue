@@ -23,4 +23,7 @@ export default {
   likelistCount(state) {
     return state.likelist.length;
   },
+  recentPlaylist(state) {
+    return state.recentPlaylist;
+  },
 };

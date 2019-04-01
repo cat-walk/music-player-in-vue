@@ -1,7 +1,7 @@
 import * as Types from './mutation-types';
 
 export default {
-/*   [Types.SET_MUSIC_URL](state, payload) {
+  /*   [Types.SET_MUSIC_URL](state, payload) {
     state.musicUrl = payload;
   },
   [Types.SET_COVER_IMG_URL](state, payload) {
@@ -21,5 +21,9 @@ export default {
   },
   [Types.SET_LIKE_LIST](state, payload) {
     state.likelist = payload;
+  },
+  [Types.UPDATE_RECENT_PLAYLIST](state, payload) {
+    const { recentPlaylist } = state;
+    if (recentPlaylist.indexOf(payload) === -1) recentPlaylist.push(payload);
   },
 };

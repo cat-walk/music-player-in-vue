@@ -14,4 +14,5 @@ export default {
     singers: '',
   },
   likelist: [],
+  recentPlaylist: [],
 };

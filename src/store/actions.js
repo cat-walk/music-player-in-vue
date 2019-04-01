@@ -5,8 +5,13 @@ import * as Types from './mutation-types';
 export default {
   async getThenSetSongInfo({ commit }, songData) {
     try {
-      const res = await playControlApi.getMusicUrl(songData.id);
+      const songId = songData.id;
+      const res = await playControlApi.getMusicUrl(songId);
       const musicUrl = res.data[0].url;
+
+      // 同时将这首歌存入该用户的最近播放记录里
+      commit(Types.UPDATE_RECENT_PLAYLIST, songId);
+
       commit(Types.SET_SONG_INFO, { ...songData, musicUrl });
     } catch (e) {
       console.log(e);

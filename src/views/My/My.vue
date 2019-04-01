@@ -3,7 +3,8 @@
     <Nav/>
     <ul class="play-list-group">
       <li class="play-list-item">
-        <router-link :to="{name: 'RecentPlay', params: {data: this.resPlayRecord}}">
+        <!-- TODO: 下面的data -->
+        <router-link :to="{name: 'RecentPlay', params: {data: []}}">
           <div class="icon-container">
             <i class="iconfont icon-bofang1"></i>
           </div>
@@ -31,19 +32,20 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import Nav from '../../components/Nav.vue';
-import { getUserPlayRecord, getUserPlaylist } from '../../api/My';
+import { getUserPlaylist } from '../../api/My';
 
 export default {
   name: 'My',
   data() {
     return {
-      recentPlayCount: 0,
       likelistId: null,
-      resPlayRecord: null,
     };
   },
   computed: {
-    ...mapGetters(['likelistCount']),
+    ...mapGetters(['likelistCount', 'recentPlaylist']),
+    recentPlayCount() {
+      return this.recentPlaylist.length;
+    },
   },
   components: {
     Nav,
@@ -53,9 +55,7 @@ export default {
     async getData() {
       const uid = localStorage.getItem('uid');
       // TODO: 下面的代码是否要等第一个请求完成后才会进行第二个请求？
-      this.resPlayRecord = await getUserPlayRecord(uid);
       this.getThenSetLikelist(uid);
-      this.recentPlayCount = this.resPlayRecord.weekData.length;
       this.getLikelistId(uid);
     },
     async getLikelistId(uid) {
