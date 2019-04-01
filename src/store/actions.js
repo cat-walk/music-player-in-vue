@@ -1,5 +1,7 @@
 import * as playControlApi from '../api/PlayControl/PlayControl';
 import * as myApi from '../api/My';
+import * as loginRegisterApi from '../api/SideBar';
+
 import * as Types from './mutation-types';
 
 export default {
@@ -33,6 +35,18 @@ export default {
       commit(Types.SET_LIKE_LIST, likelistIds);
     } catch (e) {
       console.log(e);
+    }
+  },
+  async getThenSetLoginStatus({ commit }) {
+    try {
+      const res = await loginRegisterApi.getLoginStatus();
+      commit(Types.UPDATE_LOGIN_STATUS, true);
+    } catch (e) {
+      if (e.code === 301) {
+        commit(Types.UPDATE_LOGIN_STATUS, false);
+      } else {
+        console.log(e);
+      }
     }
   },
 };

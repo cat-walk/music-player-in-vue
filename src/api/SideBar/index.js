@@ -11,3 +11,9 @@ export const getLoginStatus = () => axios.get('/login/status', {
     random: Math.random(),
   },
 });
+
+export const getUserDetail = uid => axios.get('/user/detail', {
+  params: {
+    uid,
+  },
+});

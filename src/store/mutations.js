@@ -26,4 +26,7 @@ export default {
     const { recentPlaylist } = state;
     if (recentPlaylist.indexOf(payload) === -1) recentPlaylist.push(payload);
   },
+  [Types.UPDATE_LOGIN_STATUS](state, payload) {
+    state.loginStatus = payload;
+  },
 };

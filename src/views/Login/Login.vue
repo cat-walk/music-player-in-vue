@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import BackHeader from '../../components/BackHeader.vue';
 import Reminder from '../../components/Reminder.vue';
 import { login } from '../../api/Login';
@@ -47,6 +48,7 @@ export default {
     };
   },
   methods: {
+    ...mapActions(['getThenSetLoginStatus']),
     cleanTel() {
       this.tel = null;
     },
@@ -54,6 +56,7 @@ export default {
       e.preventDefault();
       login(this.tel, this.password).then(
         (res) => {
+          this.getThenSetLoginStatus(); // 更新vuex里的登录状态
           localStorage.setItem('uid', res.account.id); // 先将用户的id即uid存储在localStorage里
           this.$router.push('/my');
         },

@@ -15,4 +15,5 @@ export default {
   },
   likelist: [],
   recentPlaylist: [],
+  loginStatus: false,
 };

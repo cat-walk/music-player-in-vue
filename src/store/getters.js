@@ -26,4 +26,7 @@ export default {
   recentPlaylist(state) {
     return state.recentPlaylist;
   },
+  loginStatus(state) {
+    return state.loginStatus;
+  },
 };
