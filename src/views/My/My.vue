@@ -4,7 +4,7 @@
     <ul class="play-list-group">
       <li class="play-list-item">
         <!-- TODO: 下面的data -->
-        <router-link :to="{name: 'RecentPlay', params: {data: []}}">
+        <router-link :to="{name: 'RecentPlay'}">
           <div class="icon-container">
             <i class="iconfont icon-bofang1"></i>
           </div>

@@ -1,19 +1,36 @@
 <template>
   <section>
     <back-header color="red" title="最近播放"></back-header>
-    <song-list :tracks="tracks" class='song-list'></song-list>
+    <song-list v-if="tracks.length" :tracks="tracks" class="song-list"></song-list>
+    <p v-else class="empty-remind">你最近没有放过歌噢！</p>
   </section>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import BackHeader from '../../components/BackHeader.vue';
 import SongList from '../../components/SongList.vue';
+import { getSongDetail } from '../../api/RecentPlay';
 
 export default {
+  data() {
+    return {
+      tracks: [],
+    };
+  },
   computed: {
-    // 对数据做了一下处理，使其可以共用一个组件
-    tracks() {
-      return this.$route.params.data.weekData.map(item => item.song);
+    ...mapGetters(['recentPlaylist']),
+  },
+  watch: {
+    async recentPlaylist(newList) {
+      if (newList.length) {
+        try {
+          const res = await getSongDetail(this.recentPlaylist.toString());
+          this.tracks = res.songs;
+        } catch (error) {
+          console.log(error);
+        }
+      }
     },
   },
   components: {
@@ -24,7 +41,12 @@ export default {
 </script>
 
 <style scoped lang='less'>
-.song-list{
-  padding-top: .44rem;
+.song-list {
+  padding-top: 0.44rem;
+}
+.empty-remind {
+  text-align: center;
+  padding: 1rem 0.1rem;
+  font-size: 16px;
 }
 </style>

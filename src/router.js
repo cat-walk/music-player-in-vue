@@ -57,7 +57,7 @@ const router = new Router({
       component: Login,
     },
     {
-      path: '/recent-play/:data',
+      path: '/recent-play',
       name: 'RecentPlay',
       component: RecentPlay,
     },
