@@ -22,7 +22,9 @@ Github地址：https://github.com/Binaryify/NeteaseCloudMusicApi
 
 后端操作见文档。
 
+</br>
 
+</br>
 
 ## 界面和功能展示
 
@@ -33,44 +35,37 @@ Github地址：https://github.com/Binaryify/NeteaseCloudMusicApi
 banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时间写那些啦...
 
 | <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvniaitlj30ku112e3r.jpg" width="375" /> | <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvnggnfwj30ku112476.jpg" width="375" /> | <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvnfmjmtj30ku112qd8.jpg" width="375" /> |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| :----------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvneh5fcj30ku112tes.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvndlwtaj30ku1127bn.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvnce5e0j30ku112njf.jpg" width="375" /> |
 
+</br>
 
-
-
+</br>
 
 
 ### 实现了登录功能
 
 登录后展示头像和昵称，且可进入个人中心即“我的”页面，可查看收藏的音乐和最近播放过的音乐。
 
-<figure class="half">
-  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn3o98jj30ku112gqm.jpg" style="zoom:35%" />
-  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn34sgmj30ku112jt4.jpg" style="zoom:35%" />
-  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvn2sn6zj30ku112dhl.jpg" style="zoom:35%" />
-  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn2bx81j30ku11244b.jpg" style="zoom:35%" />
-  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvy9paiaj30ku112wg5.jpg" style="zoom:35%" />
-  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvyay1i0j30ku112wrf.jpg" style="zoom:35%" />
-</figure>
 
+| <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn3o98jj30ku112gqm.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn34sgmj30ku112jt4.jpg" width="375" /> | <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvn2sn6zj30ku112dhl.jpg" width="375" /> |
+| :----------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn2bx81j30ku11244b.jpg" width="375" /> | <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvy9paiaj30ku112wg5.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvyay1i0j30ku112wrf.jpg" width="375" /> |
 
+</br>
 
-
+</br>
 
 ### 搜索模块：热门搜索、搜索历史、搜索建议
 
-<figure class="half">
-  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn6c8n5j30ku112wgw.jpg" style="zoom:33%" />
-  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn5r15mj30ku11242t.jpg" style="zoom:33%" />
-  <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn569iej30ku112dkd.jpg" style="zoom:33%" />
-  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn4ggqij30ku112412.jpg" style="zoom:33%" />
-</figure>
 
+| <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn6c8n5j30ku112wgw.jpg" width="375" /> | <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn5r15mj30ku11242t.jpg" width="375" /> |
+| :----------------------------------------------------------: | ------------------------------------------------------------ |
+| <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn569iej30ku112dkd.jpg" width="375" /> | <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn4ggqij30ku112412.jpg" width="375" /> |
 
+</br>
 
-
-
+</br>
 
 ## 项目结构
 
@@ -113,9 +108,9 @@ PS：
     - [x] 搜索结果模块
       - [x] 播放控制模块：实现了收藏/取消收藏歌曲的功能，实现了添加到最近播放歌曲的功能
 
+</br>
 
-
-
+</br>
 
 ## 代码规范
 
@@ -123,7 +118,9 @@ PS：
 
 [在VSCode里配置 ESLint + Airbnb + Vue](https://catwalk.red/2019/03/04/%E5%9C%A8VSCode%E9%87%8C%E9%85%8D%E7%BD%AE%20ESLint%20+%20Airbnb%20+%20Vue/)
 
+</br>
 
+</br>
 
 ## 技术方案
 - 项目目录结构
@@ -146,7 +143,9 @@ PS：
 
 - 轮播图实现：[在Vue中使用Swiper](https://github.com/surmon-china/vue-awesome-swiper)
 
+</br>
 
+</br>
 
 ## 项目已知问题
 
@@ -158,11 +157,13 @@ PS：
 3. 打开侧边栏的按钮有时会失效（侧边栏使用了vue-slideout插件        =====>甩锅:)
 4. 由于一系列复杂的问题，通过搜索界面进入歌曲控制页面的话，没有封面图片，只有懒加载的默认图片
 
-
+</br>
 
 **写这个项目的经验和收获将在整理后发到我的Github上，应该不会鸽**
 
+</br>
 
+</br>
 
 ## 致谢
 
