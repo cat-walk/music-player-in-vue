@@ -34,9 +34,9 @@ Github地址：https://github.com/Binaryify/NeteaseCloudMusicApi
 
 banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时间写那些啦...
 
-| <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvniaitlj30ku112e3r.jpg" width="375" /> | <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvnggnfwj30ku112476.jpg" width="375" /> | <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvnfmjmtj30ku112qd8.jpg" width="375" /> |
+| <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-1-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-2-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-3-.png" width="375" /> |
 | :----------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvneh5fcj30ku112tes.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvndlwtaj30ku1127bn.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvnce5e0j30ku112njf.jpg" width="375" /> |
+| <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-4-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-5-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-6-.png" width="375" /> |
 
 </br>
 
@@ -48,9 +48,9 @@ banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时�
 登录后展示头像和昵称，且可进入个人中心即“我的”页面，可查看收藏的音乐和最近播放过的音乐。
 
 
-| <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn3o98jj30ku112gqm.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn34sgmj30ku112jt4.jpg" width="375" /> | <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvn2sn6zj30ku112dhl.jpg" width="375" /> |
+| <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-12-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-13-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-14-.png" width="375" /> |
 | :----------------------------------------------------------: | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn2bx81j30ku11244b.jpg" width="375" /> | <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvy9paiaj30ku112wg5.jpg" width="375" /> | <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvyay1i0j30ku112wrf.jpg" width="375" /> |
+| <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-15-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-16-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-17-.png" width="375" /> |
 
 </br>
 
@@ -59,9 +59,9 @@ banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时�
 ### 搜索模块：热门搜索、搜索历史、搜索建议
 
 
-| <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn6c8n5j30ku112wgw.jpg" width="375" /> | <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn5r15mj30ku11242t.jpg" width="375" /> |
+| <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-8-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-9-.png" width="375" /> |
 | :----------------------------------------------------------: | ------------------------------------------------------------ |
-| <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvn569iej30ku112dkd.jpg" width="375" /> | <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvn4ggqij30ku112412.jpg" width="375" /> |
+| <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-10-.png" width="375" /> | <img src="http://dogfun.oss-cn-beijing.aliyuncs.com/blog/2019-04-02-127.0.0.1_3001_-iPhone%206_7_8-%20-11-.png" width="375" /> |
 
 </br>
 
