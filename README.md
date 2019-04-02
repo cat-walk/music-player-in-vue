@@ -36,9 +36,9 @@ banner、排行榜左边的三个按钮点击没有效果( ´▽｀) ，没时�
 
 <figure class="half">
   <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvniaitlj30ku112e3r.jpg" width="375" />
-  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvnggnfwj30ku112476.jpg" style="zoom:33%" />
-  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvnfmjmtj30ku112qd8.jpg" style="zoom:33%" />
-  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvneh5fcj30ku112tes.jpg" style="zoom:33%" />
+  <img src="https://ws1.sinaimg.cn/large/006tKfTcly1g1nvnggnfwj30ku112476.jpg" width="375" />
+  <img src="https://ws3.sinaimg.cn/large/006tKfTcly1g1nvnfmjmtj30ku112qd8.jpg" width="375" />
+  <img src="https://ws4.sinaimg.cn/large/006tKfTcly1g1nvneh5fcj30ku112tes.jpg" width="375" />
   <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvndlwtaj30ku1127bn.jpg" style="zoom:33%" />
   <img src="https://ws2.sinaimg.cn/large/006tKfTcly1g1nvnce5e0j30ku112njf.jpg" style="zoom:33%" />
 </figure>
