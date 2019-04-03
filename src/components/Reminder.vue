@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { getScreenHeight } from '../utils/utils.js';
+import { getScreenHeight } from '../utils/utils';
 
 export default {
   props: ['word', 'ifShow', 'callback'],
