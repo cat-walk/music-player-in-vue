@@ -23,4 +23,5 @@ a{
 // 通过传递 passive 为 false 来明确告诉浏览器：事件处理程序调用 preventDefault 来阻止默认滑动行为
 * { touch-action: pan-y; } 
 
-input, button{ outline: none; } 
+// 去除input和button标签的默认样式
+input, button{ outline: none; background: none; border: none} 
