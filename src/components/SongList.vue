@@ -24,9 +24,6 @@ export default {
   methods: {
     formatSinger,
   },
-  mounted() {
-    console.log(this.tracks);
-  },
 };
 </script>
 

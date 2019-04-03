@@ -104,12 +104,15 @@ export default {
     async toggleStarStatus() {
       try {
         const like = this.thisSongInLikelist;
-        const res = await toggleStarTheSong(this.songId, like);
-        console.log(res);
+        await toggleStarTheSong(this.songId, like);
         const uid = localStorage.getItem('uid');
         this.getThenSetLikelist(uid);
       } catch (error) {
-        console.log(error);
+        if (error.code === 301) {
+          this.$router.push('/login');
+        } else {
+          console.log(error);
+        }
       }
     },
   },

@@ -50,7 +50,6 @@ export default {
           const res = await getUserDetail(localStorage.getItem('uid'));
           this.nickname = res.profile.nickname;
           this.avatarUrl = res.profile.avatarUrl;
-          console.log(res);
         } catch (error) {
           console.log(error);
         }
