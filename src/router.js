@@ -8,7 +8,7 @@ import PlayListDetail from './views/PlayListDetail/PlayListDetail.vue';
 import PlayControl from './views/PlayControl/PlayControl.vue';
 import Login from './views/Login/Login.vue';
 import RecentPlay from './views/RecentPlay/RecentPlay.vue';
-import { getLoginStatus } from './api/SideBar';
+import store from './store';
 
 Vue.use(Router);
 
@@ -72,15 +72,9 @@ router.beforeEach((to, from, next) => {
   } else next();
 }); */
 
-router.beforeEach(async (to, from, next) => {
-  if (to.meta.needLogin) {
-    try {
-      const res = await getLoginStatus();
-      if (res.code === 200) next();
-    } catch (error) {
-      error.code === 301 ? router.push('/login') : console.log(error);
-    }
-  } else next();
+router.beforeEach((to, from, next) => {
+  if (to.meta.needLogin && !store.state.loginStatus) router.push('/login');
+  else next();
 });
 
 export default router;
