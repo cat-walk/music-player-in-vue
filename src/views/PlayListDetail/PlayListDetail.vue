@@ -91,7 +91,7 @@ img[lazy="loading"] {
   }
   .play-list-title {
     position: absolute;
-    bottom: 10%;
+    bottom: 18%;
     left: 10%;
     font-size: 0.3rem;
     color: #fff;

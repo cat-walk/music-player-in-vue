@@ -11,7 +11,6 @@
 import BackHeader from '../../components/BackHeader.vue';
 import SearchList from './SearchList.vue';
 import SearchResultList from './SearchResultList.vue';
-import { getScreenHeight } from '../../utils/utils';
 import { getHotSearch } from '../../api/Search/Search';
 import { getSearchResult } from '../../api/SearchResult';
 
@@ -52,10 +51,6 @@ export default {
   },
   created() {
     this.getData();
-  },
-  mounted() {
-    // 使得搜索组件充满整个屏幕
-    this.$refs.searchBox.style.height = getScreenHeight();
   },
   // 该局部路由守卫的作用是让每次跳转进搜索界面时，都显示热门搜索和历史记录，而不是搜索结果
   beforeRouteLeave(to, from, next) {

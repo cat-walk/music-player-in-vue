@@ -78,6 +78,7 @@ export default {
   .play-list-item {
     padding: 0.1rem 0.1rem;
     border-bottom: 1px solid #e4e4e4;
+    font-size: .16rem;
     .icon-container {
       box-sizing: border-box;
       display: inline-block;

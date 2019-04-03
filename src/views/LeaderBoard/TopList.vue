@@ -30,7 +30,7 @@ img[lazy=loading]{
 .top-list-box {
   padding-top: 0.14rem;
   .top-list-item-title {
-    font-size: 0.16rem;
+    font-size: 0.18rem;
   }
 
   .top-list {
@@ -40,6 +40,7 @@ img[lazy=loading]{
     justify-content: space-around;
     .top-list-unit {
       width: 32%;
+      margin-bottom: 0.05rem;
       .img-wrap {
         overflow: hidden;
         .coverImg {
@@ -48,7 +49,6 @@ img[lazy=loading]{
         }
       }
       .top-list-title {
-        margin: 0.02rem 0.05rem 0.15rem;
         color: gray;
         font-weight: 400;
         font-size: 0.12rem;

@@ -172,25 +172,28 @@ img[lazy="loading"] {
 .page-wrap {
   background: rgba(0, 0, 0, 0.3);
   .play-control-header {
+    position: relative;
     height: 0.5rem;
     .back-btn {
-      display: inline-block;
-      vertical-align: middle;
       color: #f1f1f1;
       width: 0.5rem;
       height: 0.5rem;
       text-align: center;
+      position: absolute;
+      left: .01rem;
+      top: 20%;
     }
     .song-info {
-      display: inline-block;
-      width: 80%;
       .song-name {
         color: #f1f1f1;
         font-size: 0.2rem;
-        margin: 0.05rem 0;
+        padding: 0.1rem 0 0;
+        text-align: center;
       }
       .singers {
+        text-align: center;
         color: lightgray;
+        font-size: .16rem;
       }
     }
   }
@@ -225,6 +228,7 @@ img[lazy="loading"] {
       align-items: center;
       justify-content: space-around;
       padding: 0 0.1rem;
+      font-size: .16rem;
       .has-played-time {
         color: #f1f1f1;
       }

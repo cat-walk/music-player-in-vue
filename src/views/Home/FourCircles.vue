@@ -60,6 +60,7 @@ export default {};
       .title {
         text-align: center;
         font-weight: 400;
+        font-size: .16rem;
       }
     }
   }

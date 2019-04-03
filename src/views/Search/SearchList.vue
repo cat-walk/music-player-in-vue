@@ -36,11 +36,11 @@ export default {
     flex-wrap: wrap;
     margin-left: .1rem;
     .item {
-      height: .24rem;
+      height: .3rem;
       line-height: .24rem;
       padding: 0.03rem 0.15rem;
       margin: 0.05rem 0.05rem 0.05rem 0;
-      border-radius: 0.15rem;
+      border-radius: 0.18rem;
       background: #eae1e1;
       color: #666161;
     }

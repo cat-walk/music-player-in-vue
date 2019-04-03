@@ -52,7 +52,7 @@ img[lazy="loading"] {
 }
 
 .recom-songlist-header {
-  font-size: 0.17rem;
+  font-size: .17rem;
   padding-left: 0.03rem;
   margin: 0.28rem 0 0 0;
   font-weight: 400;
@@ -65,7 +65,7 @@ img[lazy="loading"] {
   .songlist-item {
     position: relative;
     width: 32%;
-    margin: 0.1rem 0;
+    margin: .05rem 0;
     .img-wrap {
       border-radius: 0.02rem;
       overflow: hidden;
@@ -79,12 +79,13 @@ img[lazy="loading"] {
       top: 0.03rem;
       right: 0.03rem;
       color: #f1f1f1;
+      font-size: .16rem;
     }
     .songlist-title {
-      // font-size: .1rem;
-      height: 0.32rem;
+      font-size: .12rem;
+      line-height: .2rem;
+      height: .4rem;
       overflow: hidden;
-      // text-overflow: ellipsis;
     }
   }
 }

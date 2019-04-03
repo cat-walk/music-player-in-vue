@@ -132,7 +132,6 @@ img[lazy=loading]{
   z-index: 999;
   bottom: 0;
   width: 100%;
-  height: 0.5rem;
   padding: 0.03rem;
   background: #fff;
   > * {
@@ -154,6 +153,7 @@ img[lazy=loading]{
     }
   }
   .img-wrap {
+    height: .5rem;
     .small-cover-img {
       width: 0.5rem;
       height: 0.5rem;
@@ -162,7 +162,7 @@ img[lazy=loading]{
   }
   .song-info {
     color: #2e3030;
-    width: 60%;
+    width: 50%;
     .song-name {
       font-size: 0.17rem;
       line-height: 0.3rem;
@@ -170,6 +170,7 @@ img[lazy=loading]{
     .song-singers {
       line-height: 0.17rem;
       color: lightgray;
+      font-size: .12rem;
     }
   }
 }

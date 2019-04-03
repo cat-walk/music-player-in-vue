@@ -78,7 +78,7 @@ export default {
 .side-bar-menu {
   position: relative;
   .menu-top {
-    height: 1.2rem;
+    height: 1.7rem;
     padding-top: 0.4rem;
     background: #000;
     .login-desc1,

@@ -11,7 +11,7 @@
             <p
               v-for="(track, indexOfTrack) in item.tracks"
               :key="indexOfTrack"
-              class="ellipsis"
+              class="track-title ellipsis"
             >{{ indexOfTrack + 1}}.{{track.first}} - {{track.second}}</p>
           </div>
         </router-link>
@@ -39,7 +39,7 @@ a {
 .official-list-box {
   padding-top: 0.58rem;
   .official-list-title {
-    font-size: 0.16rem;
+    font-size: .18rem;
   }
   .official-list {
     padding-top: 0.1rem;
@@ -55,9 +55,10 @@ a {
       }
       .tracks-box {
         width: 66%;
-        .ellipsis {
+        .track-title {
           margin: 0.15rem 0.1rem;
           color: gray;
+          font-size: .15rem;
         }
       }
     }
