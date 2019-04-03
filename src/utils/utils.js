@@ -1,4 +1,4 @@
-export const getScreenHeight = () => `${document.documentElement.clientHeight / 100}rem`;
+export const getScreenHeight = () => `${document.documentElement.clientHeight}px`;
 
 export const formatSinger = (singerList) => {
   // 拿出列表里面每一项的name，中间用'/'分隔
