@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production' ? '//your_url' : '/',
+  baseUrl: process.env.NODE_ENV === 'production' ? './' : '/',
 
   outputDir: 'dist',
 
