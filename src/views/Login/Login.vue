@@ -90,6 +90,7 @@ export default {
   padding-top: 0.44rem;
   .phone-number-container,
   .password-container {
+    position: relative;
     border-bottom: 1px solid #e4e4e4;
     padding: 0.05rem 0;
     margin: 0.2rem 0.2rem;
@@ -109,7 +110,8 @@ export default {
     margin: 0 0.1rem;
   }
   .clean-btn {
-    float: right;
+    position: absolute;
+    right: .05rem;
   }
   .login-btn-container {
     text-align: center;
