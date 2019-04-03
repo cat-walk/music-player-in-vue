@@ -39,7 +39,7 @@ export default {
   },
   async getThenSetLoginStatus({ commit }) {
     try {
-      const res = await loginRegisterApi.getLoginStatus();
+      await loginRegisterApi.getLoginStatus();
       commit(Types.UPDATE_LOGIN_STATUS, true);
     } catch (e) {
       if (e.code === 301) {
