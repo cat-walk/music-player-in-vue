@@ -7,7 +7,14 @@
           <i class="iconfont icon-shouji"></i>
           <span class="country-code">+86</span>
         </label>
-        <input class="tel-input" type="tel" autofocus v-model="tel" required pattern="^1[34578]\d{9}">
+        <input
+          class="tel-input"
+          type="tel"
+          autofocus
+          v-model="tel"
+          required
+          pattern="^1[34578]\d{9}"
+        >
         <button class="clean-btn" @click="cleanTel">
           <i class="iconfont icon-chahao"></i>
         </button>
@@ -52,20 +59,20 @@ export default {
     cleanTel() {
       this.tel = null;
     },
-    tryToLogin(e) {
-      e.preventDefault();
-      login(this.tel, this.password).then(
-        (res) => {
-          this.getThenSetLoginStatus(); // 更新vuex里的登录状态
-          localStorage.setItem('uid', res.account.id); // 先将用户的id即uid存储在localStorage里
-          this.$router.push('/my');
-        },
-        (err) => {
-          console.dir(err, 'failed');
-          this.reminderFlag = true;
-          this.reminderWord = err.msg;
-        },
-      );
+    async tryToLogin(e) {
+      e.preventDefault(); // 防止表单提交的默认行为：刷新当前页面
+      console.log(1);
+      try {
+        const res = await login(this.tel, this.password);
+        localStorage.setItem('uid', res.account.id); // 先将用户的id即uid存储在localStorage里
+        await this.getThenSetLoginStatus(); // 更新vuex里的登录状态
+        this.$router.replace('/my');
+        // debugger;
+      } catch (error) {
+        console.dir(error, 'failed');
+        this.reminderFlag = true;
+        this.reminderWord = error.msg;
+      }
     },
     resetReminder() {
       this.reminderFlag = false;
