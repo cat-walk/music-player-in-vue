@@ -25,3 +25,9 @@ a{
 
 // 去除input和button标签的默认样式
 input, button{ outline: none; background: none; border: none} 
+
+// 去除button在ios上的默认样式
+input[type="button"], input[type="submit"], input[type="reset"] ,
+button {
+    -webkit-appearance:none;
+}
