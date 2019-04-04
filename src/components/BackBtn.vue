@@ -1,7 +1,7 @@
 <template>
-  <span class="back-btn">
-    <i class="iconfont icon-flow" @click="goBack"></i>
-  </span>
+  <button class="back-btn" @click="goBack">
+    <i class="iconfont icon-flow"></i>
+  </button>
 </template>
 
 <script>
@@ -20,7 +20,9 @@ export default {
 
 <style scoped lang='less'>
 .back-btn {
+  color: #fff;
   margin: 0 0.05rem;
+  padding: 10px 10px 10px 5px;
   .iconfont {
     font-size: 0.22rem;
   }
