@@ -14,7 +14,8 @@ export default {
     state.duration = payload;
   },
   [Types.SET_IS_PLAYING](state, payload) {
-    state.isPlaying = payload;
+    // 可能有误：payload和isPlaying不一样的情况下，才去更新isPlaying，防止“isPlaying为true时再设置isPlaying为true，导致audio标签从头开始播放的问题”
+    if (state.isPlaying !== payload) state.isPlaying = payload;
   },
   [Types.SET_CURRENT_TIME](state, payload) {
     state.currentTime = payload;
@@ -24,7 +25,8 @@ export default {
   },
   [Types.UPDATE_RECENT_PLAYLIST](state, payload) {
     const { recentPlaylist } = state;
-    if (recentPlaylist.indexOf(payload) === -1) recentPlaylist.push(payload);
+    const strPayload = `${payload}`; // 统一转成字符串
+    if (recentPlaylist.indexOf(strPayload) === -1) recentPlaylist.push(strPayload);
   },
   [Types.UPDATE_LOGIN_STATUS](state, payload) {
     state.loginStatus = payload;
