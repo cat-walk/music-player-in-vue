@@ -9,7 +9,6 @@
     ></audio>
     <section v-show="showFlag" class="footer-control-panel clear" @click="toSongComponent">
       <div class="img-wrap">
-        <!-- FIXME: 使用v-lazy指令时，图片不会更新 -->
         <img class="small-cover-img" v-lazy="songInfo.coverImgUrl" alt>
       </div>
       <div class="song-info">
@@ -35,11 +34,6 @@ import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'MyAudio',
-  data() {
-    return {
-      iconClassname: 'iconfont icon-bofang1',
-    };
-  },
   methods: {
     ...mapActions([
       'getThenSetDuration',
@@ -58,13 +52,11 @@ export default {
     },
     toggleToStopStatus() {
       this.$refs.audio.pause();
-      this.iconClassname = 'iconfont icon-bofang1';
       this.clearTimer();
-      this.getThenSetIsPlaying(false);
     },
     toggleToPlayStatus() {
       this.$refs.audio.play();
-      this.iconClassname = 'iconfont icon-zanting';
+      // console.log(this.$refs.audio.paused);
       this.setTimer();
     },
     refreshDuration() {
@@ -90,9 +82,11 @@ export default {
         params: { coverImgUrl: this.songInfo.coverImgUrl },
       });
     },
+    saveAudio() {
+      localStorage.setItem('audioElement', this.$refs.audio);
+    },
   },
   computed: {
-    // TODO: 为什么在computed里面？
     ...mapGetters(['songInfo', 'isPlaying']),
     showFlag() {
       // emmmmmmmm 这个判定条件写的真好
@@ -102,28 +96,30 @@ export default {
         && this.$refs.audio
         && this.$refs.audio.duration
       ) {
-        // debugger;
         return true;
       }
-      // debugger;
       return false;
+    },
+    iconClassname() {
+      return this.isPlaying ? 'iconfont icon-zanting' : 'iconfont icon-bofang1';
     },
   },
   watch: {
     isPlaying(newValue) {
+      // debugger;
       newValue ? this.toggleToPlayStatus() : this.toggleToStopStatus();
     },
-    /*     [this.$ref.audio.current]() {
+  },
+  mounted() {
 
-    }, */
   },
 };
 </script>
 
 <style scoped lang='less'>
-img[lazy=loading]{
-  width: .5rem;
-  height: .5rem;
+img[lazy="loading"] {
+  width: 0.5rem;
+  height: 0.5rem;
 }
 
 .footer-control-panel {
@@ -153,7 +149,7 @@ img[lazy=loading]{
     }
   }
   .img-wrap {
-    height: .5rem;
+    height: 0.5rem;
     .small-cover-img {
       width: 0.5rem;
       height: 0.5rem;
@@ -170,7 +166,7 @@ img[lazy=loading]{
     .song-singers {
       line-height: 0.17rem;
       color: lightgray;
-      font-size: .12rem;
+      font-size: 0.12rem;
     }
   }
 }
