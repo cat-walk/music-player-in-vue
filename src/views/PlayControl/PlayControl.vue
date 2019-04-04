@@ -8,8 +8,8 @@
       </div>
     </header>
     <section class="main">
-      <div class="cover-img-box rotate" ref="rotateCD">
-        <div class="img-wrap">
+      <div class="cover-img-box">
+        <div class="img-wrap" ref="rotateCD">
           <img alt class="cover-img" v-lazy="this.$route.params.coverImgUrl">
         </div>
       </div>
@@ -169,18 +169,22 @@ img[lazy="loading"] {
   }
 }
 
+.rotate {
+  animation: infiniteRotate 10s infinite linear;
+}
+
 .page-wrap {
   background: rgba(0, 0, 0, 0.3);
   .play-control-header {
     position: relative;
-    height: 0.5rem;
+    height: 10%;
     .back-btn {
       color: #f1f1f1;
       width: 0.5rem;
       height: 0.5rem;
       text-align: center;
       position: absolute;
-      left: .01rem;
+      left: 0.01rem;
       top: 20%;
     }
     .song-info {
@@ -193,21 +197,22 @@ img[lazy="loading"] {
       .singers {
         text-align: center;
         color: lightgray;
-        font-size: .16rem;
+        font-size: 0.16rem;
       }
     }
   }
   .main {
+    height: 72%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     .cover-img-box {
-      width: 3rem;
-      height: 3rem;
-      margin: 1rem auto;
+      width: 80vw;
+      height: 80vw;
       background-color: #2e3030;
       border-radius: 50%;
       overflow: hidden;
-      &.rotate {
-        animation: infiniteRotate 10s infinite linear;
-      }
       .img-wrap {
         width: 70%;
         height: 70%; // 设置高度以让子元素宽高相同
@@ -223,12 +228,13 @@ img[lazy="loading"] {
   }
   // 固定定位应该有问题，那要如何设置呢？
   .play-control-footer {
+    height: 18%;
     .progress-wrap {
       display: flex;
       align-items: center;
       justify-content: space-around;
       padding: 0 0.1rem;
-      font-size: .16rem;
+      font-size: 0.16rem;
       .has-played-time {
         color: #f1f1f1;
       }
