@@ -1,7 +1,8 @@
 # 高仿网易云音乐 Vue前端项目
 
 ## 现在就克隆下来看看吧！
-
+Github地址： https://github.com/cat-walk/music-player-in-vue
+项目部署地址： http://meiyun.info
 ### 前端部分
 
 1. 安装依赖
