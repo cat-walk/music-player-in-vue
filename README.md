@@ -10,6 +10,7 @@ Vue + Vue-Router + Vuex + Webpack + Axios
 
 Github地址： https://github.com/cat-walk/music-player-in-vue
 项目部署地址： http://meiyun.info
+如果你发现该项目有问题，建议先看看本文底部的**项目已知问题**，里面可能会有说明，如果没有，欢迎issue或留言，谢谢～
 
 ### 前端部分
 
