@@ -73,6 +73,15 @@ module.exports = {
       .rule('eslint')
       .exclude.add('/Users/maybexia/Downloads/FE/community_built-in/src/lib')
       .end();
+    config.module
+      .rule('zepto')
+      .test(require.resolve('zepto'))
+      .use('exports')
+      .loader('exports-loader?window.Zepto')
+      .end()
+      .use('script')
+      .loader('script-loader')
+      .end();
   },
 
   // 配置高于chainWebpack中关于 css loader 的配置
