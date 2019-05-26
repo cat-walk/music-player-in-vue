@@ -1,6 +1,6 @@
 
 <template>
-  <div class="horizon-line">
+  <div class="horizon-line left-right-padding-box">
     <h1 class="recom-songlist-header">推荐歌单 ></h1>
     <ul class="songlist-group">
       <li v-for="(item, index) in recomSongList" :key="index" class="songlist-item">
@@ -54,13 +54,13 @@ img[lazy="loading"] {
 .recom-songlist-header {
   font-size: .17rem;
   padding-left: 0.03rem;
-  margin: 0.28rem 0 0 0;
+  margin: 0.1rem 0 0 0;
   font-weight: 400;
 }
 
 .songlist-group {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   .songlist-item {
     position: relative;
