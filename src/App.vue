@@ -6,12 +6,14 @@
       panel="#panel"
       :toggleSelectors="['.toggle-button']"
       @on-open="open"
+      @on-close="close"
       easing="linear"
+      ref="slideout"
     >
       <nav id="menu">
-        <side-bar-menu :children='this.$children'></side-bar-menu>
+        <side-bar-menu :children="this.$children"></side-bar-menu>
       </nav>
-      <main id="panel">
+      <main id="panel" ref="panel">
         <!-- keep-alive的作用是：保存未登录状态下，用户的搜索历史。是通过缓存搜索组件和其子组件SearchList做到的 -->
         <!-- <keep-alive :include="['Search', 'SearchList']"> -->
         <!-- 下面这种写法可能比上面的更好，缓存了更多的组件，性能更优秀-->
@@ -25,29 +27,36 @@
 </template>
 
 <script>
-import Slideout from 'vue-slideout';
-import { mapActions } from 'vuex';
-import MyAudio from './components/MyAudio.vue';
-import SideBarMenu from './components/SideBarMenu.vue';
+import Slideout from "vue-slideout";
+import { mapActions } from "vuex";
+import MyAudio from "./components/MyAudio.vue";
+import SideBarMenu from "./components/SideBarMenu.vue";
 
 export default {
   components: {
     Slideout,
     MyAudio,
-    SideBarMenu,
+    SideBarMenu
   },
   methods: {
-    ...mapActions(['getThenSetLoginStatus']),
+    ...mapActions(["getThenSetLoginStatus"]),
     open() {
-      console.log('slideoutOpen');
+      console.log("slideoutOpen");
+      this.$refs.panel.addEventListener("click", this.closeSlideout, false);
     },
+    closeSlideout() {
+      this.$refs.slideout.slideout.close();
+    },
+    close() {
+      this.$refs.panel.removeEventListener("click", this.closeSlideout, false);
+    }
   },
 
   created() {
     // 如果后台登录接口不稳定，可以用这种临时的解决方案：退出应用后，删除localStorage里的uid
     // localStorage.removeItem('uid');
     this.getThenSetLoginStatus();
-  },
+  }
 };
 </script>
 
