@@ -14,7 +14,7 @@
         <side-bar-menu :children="this.$children"></side-bar-menu>
       </nav>
       <main id="panel" ref="panel">
-        <!-- keep-alive的作用是：保存未登录状态下，用户的搜索历史。是通过缓存搜索组件和其子组件SearchList做到的 -->
+        <!-- keep-alive的作用之一是：保存未登录状态下，用户的搜索历史。是通过缓存搜索组件和其子组件SearchList做到的 -->
         <!-- <keep-alive :include="['Search', 'SearchList']"> -->
         <!-- 下面这种写法可能比上面的更好，缓存了更多的组件，性能更优秀-->
         <keep-alive :exclude="['PlaylistDetail', 'MyAudio', 'PlayControl']">
@@ -41,14 +41,15 @@ export default {
   methods: {
     ...mapActions(["getThenSetLoginStatus"]),
     open() {
-      console.log("slideoutOpen");
-      this.$refs.panel.addEventListener("click", this.closeSlideout, false);
-    },
-    closeSlideout() {
-      this.$refs.slideout.slideout.close();
+      this.$refs.panel.addEventListener("click", this.closeSlideout, true);
     },
     close() {
-      this.$refs.panel.removeEventListener("click", this.closeSlideout, false);
+      this.$refs.panel.removeEventListener("click", this.closeSlideout, true);
+    },
+    closeSlideout(e) {
+      // e.stopPropagation();
+      e.preventDefault(); // 阻止事件传播，以免触发主页元素的点击事件。   这里很神奇，stopPropagation不起作用，反而preventDefault起到了阻止传播的作用
+      this.$refs.slideout.slideout.close();
     }
   },
   created() {
@@ -56,7 +57,7 @@ export default {
     // localStorage.removeItem('uid');
     this.getThenSetLoginStatus();
   },
-  mounted(){
+  mounted() {
     this.$refs.slideout.slideout.disableTouch(); // 禁止通过左滑打开侧边栏
   }
 };
