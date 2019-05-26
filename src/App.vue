@@ -51,11 +51,13 @@ export default {
       this.$refs.panel.removeEventListener("click", this.closeSlideout, false);
     }
   },
-
   created() {
     // 如果后台登录接口不稳定，可以用这种临时的解决方案：退出应用后，删除localStorage里的uid
     // localStorage.removeItem('uid');
     this.getThenSetLoginStatus();
+  },
+  mounted(){
+    this.$refs.slideout.slideout.disableTouch(); // 禁止通过左滑打开侧边栏
   }
 };
 </script>
@@ -96,6 +98,7 @@ body {
   position: relative;
   z-index: 1;
   will-change: transform;
+  min-height: 100vh;
 }
 
 .slideout-open,
