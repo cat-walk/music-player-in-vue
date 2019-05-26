@@ -28,36 +28,36 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 
-import { logout, getUserDetail } from '../api/SideBar';
+import { logout, getUserDetail } from "../api/SideBar";
 
 export default {
-  props: ['children'],
+  props: ["children"],
   data() {
     return {
       nickname: null,
-      avatarUrl: null,
+      avatarUrl: null
     };
   },
   computed: {
-    ...mapGetters(['loginStatus']),
+    ...mapGetters(["loginStatus"])
   },
   watch: {
     async loginStatus(hasLogined) {
       if (hasLogined) {
         try {
-          const res = await getUserDetail(localStorage.getItem('uid'));
+          const res = await getUserDetail(localStorage.getItem("uid"));
           this.nickname = res.profile.nickname;
           this.avatarUrl = res.profile.avatarUrl;
         } catch (error) {
           console.log(error);
         }
       }
-    },
+    }
   },
   methods: {
-    ...mapActions(['getThenSetLoginStatus']),
+    ...mapActions(["getThenSetLoginStatus"]),
     async logoutThenUpdateLoginStatus() {
       try {
         await logout();
@@ -68,9 +68,9 @@ export default {
     },
     toLoginPage() {
       this.$props.children[1].slideout.close();
-      this.$router.push('/login');
-    },
-  },
+      this.$router.push("/login");
+    }
+  }
 };
 </script>
 
@@ -121,7 +121,7 @@ export default {
   }
   .menu-footer {
     position: fixed;
-    width: 80%;
+    width: 85%; // todo: 这个footer以div为定位基准元素，如果改为以menu为基准元素？
     bottom: 0;
     padding: 0.1rem;
     border-top: 1px solid #e4e4e4;
