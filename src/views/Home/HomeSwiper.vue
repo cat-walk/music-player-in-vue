@@ -5,7 +5,8 @@
     <!-- slides -->
     <swiper-slide v-for="(item,index) in banners" :key="index" class="swiper-slide">
       <div class="img-wrap">
-        <img class="banner-img" v-lazy="item.imageUrl" alt>
+        <img class="banner-img swiper-lazy" :data-src="item.imageUrl" alt>
+        <div class="swiper-lazy-preloader"></div>
       </div>
     </swiper-slide>
     <!-- Optional controls -->
@@ -14,33 +15,38 @@
 </template>
 
 <script>
-import { getBanner } from '../../api/Home/Home';
+import { getBanner } from "../../api/Home/Home";
 
 export default {
-  name: 'carrousel',
+  name: "carrousel",
   data() {
     return {
       swiperOption: {
-        autoplay: true,
+        autoplay: {
+          disableOnInteraction: false // 用户操作swiper后，不停止自动播放
+        },
         loop: true,
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination"
         },
+        lazy: {
+          loadPrevNext: true // 同时预加载前一个和后一个元素
+        }
       },
-      banners: [],
+      banners: []
     };
   },
   methods: {
     getData() {
-      getBanner().then((data) => {
+      getBanner().then(data => {
         this.banners = data.banners;
       });
-    },
+    }
   },
   computed: {
     swiper() {
       return this.$refs.mySwiper.swiper;
-    },
+    }
   },
   mounted() {
     this.getData();
@@ -48,21 +54,17 @@ export default {
     // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
     // console.log('this is current swiper instance object', this.swiper);
     // this.swiper.slideTo(3, 1000, false);
-  },
+  }
 };
 </script>
 
 <style lang="less" scoped>
-img[lazy=loading]{
-  width: 100%;
-  height: 1.4rem;
-}
-
 .swiper {
   .swiper-slide {
     .img-wrap {
       margin: 0 auto; // 实现轮播图水平居中
       width: 96%;
+      height: 1.4rem;
       .banner-img {
         width: 100%;
         border-radius: 0.05rem;
