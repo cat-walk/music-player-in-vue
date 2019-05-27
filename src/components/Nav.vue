@@ -5,7 +5,7 @@
         <i class="iconfont icon-cebianlan"></i>
       </button>
       <router-link to="/home">推荐页</router-link>
-      <router-link to="/my">我的</router-link>
+      <router-link to="/my">个人中心</router-link>
       <router-link to="/search">
         <i class="iconfont icon-sousuo"></i>
       </router-link>
