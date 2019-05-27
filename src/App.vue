@@ -17,6 +17,7 @@
         <!-- keep-alive的作用之一是：保存未登录状态下，用户的搜索历史。是通过缓存搜索组件和其子组件SearchList做到的 -->
         <!-- <keep-alive :include="['Search', 'SearchList']"> -->
         <!-- 下面这种写法可能比上面的更好，缓存了更多的组件，性能更优秀-->
+        <Nav></Nav>
         <keep-alive :exclude="['PlaylistDetail', 'MyAudio', 'PlayControl']">
           <router-view></router-view>
         </keep-alive>
@@ -30,13 +31,15 @@
 import Slideout from "vue-slideout";
 import { mapActions } from "vuex";
 import MyAudio from "./components/MyAudio.vue";
+import Nav from './components/Nav.vue'
 import SideBarMenu from "./components/SideBarMenu.vue";
 
 export default {
   components: {
     Slideout,
     MyAudio,
-    SideBarMenu
+    SideBarMenu,
+    Nav
   },
   methods: {
     ...mapActions(["getThenSetLoginStatus"]),

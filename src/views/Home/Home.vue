@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div class="redWall"></div>
-    <Nav></Nav>
     <HomeSwiper/>
     <FourCircles/>
     <!-- 不要嘲笑这个组件名 -->
@@ -13,11 +12,9 @@
 import HomeSwiper from './HomeSwiper.vue';
 import FourCircles from './FourCircles.vue';
 import RecommendSongList from './RecommendSongList.vue';
-import Nav from '../../components/Nav.vue';
 
 export default {
   components: {
-    Nav,
     HomeSwiper,
     FourCircles,
     RecommendSongList,

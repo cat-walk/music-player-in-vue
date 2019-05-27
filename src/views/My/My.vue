@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Nav/>
     <ul class="play-list-group">
       <li class="play-list-item">
         <!-- TODO: 下面的data -->
@@ -31,7 +30,6 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import Nav from '../../components/Nav.vue';
 import { getUserPlaylist } from '../../api/My';
 
 export default {
@@ -46,9 +44,6 @@ export default {
     recentPlayCount() {
       return this.recentPlaylist.length;
     },
-  },
-  components: {
-    Nav,
   },
   methods: {
     ...mapActions(['getThenSetLikelist']),
