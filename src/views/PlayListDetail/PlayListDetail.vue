@@ -17,58 +17,60 @@
         </div>
         <div class="star-me">+ 收藏（{{subscribedCount | formatToTenThousand}}万）</div>
       </div>
-      <song-list :tracks="tracks"></song-list>
+      <spin :spining="tracks.length === 0">
+        <song-list :tracks="tracks"></song-list>
+      </spin>
     </section>
   </section>
 </template>
 
 <script>
-import moment from 'moment'; // 引入Moment.js插件
-import BackHeader from '../../components/BackHeader.vue';
-import SongList from '../../components/SongList.vue';
-import { getPlayListDetail } from '../../api/PlayListDetail/PlayListDetail';
+import moment from "moment"; // 引入Moment.js插件
+import BackHeader from "../../components/BackHeader.vue";
+import SongList from "../../components/SongList.vue";
+import { getPlayListDetail } from "../../api/PlayListDetail/PlayListDetail";
 
-moment.locale('zh-cn'); // 设置moment显示中文
+moment.locale("zh-cn"); // 设置moment显示中文
 
 export default {
-  name: 'PlaylistDetail',
+  name: "PlaylistDetail",
   data() {
     return {
-      coverImgUrl: '',
-      playListTitle: '',
-      updateTime: '',
+      coverImgUrl: "",
+      playListTitle: "",
+      updateTime: "",
       tracks: [],
       trackCount: 0,
-      subscribedCount: '',
+      subscribedCount: ""
     };
   },
   components: {
     BackHeader,
-    SongList,
+    SongList
   },
   methods: {
     getData() {
-      getPlayListDetail(this.$route.query.id).then((res) => {
+      getPlayListDetail(this.$route.query.id).then(res => {
         // 如果图片的方案行不通，就通过背景来设置歌单的封面
         // this.$refs.playListDesc.style.background = `url(${res.playlist.coverImgUrl})`;
         const { playlist } = res;
         this.coverImgUrl = playlist.coverImgUrl;
         this.playListTitle = playlist.name;
-        this.updateTime = moment(playlist.updateTime).format('MMM Do');
+        this.updateTime = moment(playlist.updateTime).format("MMM Do");
         this.tracks = playlist.tracks;
         this.trackCount = playlist.trackCount;
         this.subscribedCount = playlist.subscribedCount;
       });
-    },
+    }
   },
   filters: {
     formatToTenThousand(value) {
       return (value / 10000).toFixed(1);
-    },
+    }
   },
   created() {
     this.getData();
-  },
+  }
 };
 </script>
 
